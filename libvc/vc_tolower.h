@@ -6,4 +6,15 @@
 #ifndef UNTITLED1_VC_TOLOWER_H
 #define UNTITLED1_VC_TOLOWER_H
 
+#include "vc_helper.h"
+
+char vc_tolower(char c)
+{
+    if (vc_isupper(c))
+    {
+        return c - ('A' - 'a');
+    }
+    return c;
+}
+
 #endif //UNTITLED1_VC_TOLOWER_H

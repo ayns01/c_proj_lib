@@ -6,9 +6,16 @@
 #ifndef UNTITLED1_VC_ISASCII_H
 #define UNTITLED1_VC_ISASCII_H
 
+#include "vc_helper.h"
+
+/** checks whether c is a 7-bit unsigned char value that fits into the ASCII character set. **/
 int vc_isascii(int c)
 {
-    return c >= 0 && c <= 127;
+    if(sizeof(c) == 7){
+
+    }
+        return TRUE;
+    return FALSE;
 }
 
 #endif //UNTITLED1_VC_ISASCII_H

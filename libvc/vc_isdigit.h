@@ -6,9 +6,8 @@
 #ifndef UNTITLED1_VC_ISDIGIT_H
 #define UNTITLED1_VC_ISDIGIT_H
 
-#define TRUE  1
-#define FALSE  0
 
+#include "vc_helper.h"
 
 int vc_isdigit(char c)
 {
