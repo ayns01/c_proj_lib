@@ -1,0 +1,19 @@
+/**
+ * File              : vc_putendl.h
+ * Author            : Mihail Urmanschi
+ * Date              : 2019-02-17 13:34
+ */
+#ifndef UNTITLED1_VC_PUTENDL_H
+#define UNTITLED1_VC_PUTENDL_H
+
+#include <zconf.h>
+
+void vc_putendl(char *str)
+{
+    int len = vc_strlen(str);
+    char *new_line = "\n\0";
+    write(1, str, len);
+    write(1, new_line, 1);
+}
+
+#endif //UNTITLED1_VC_PUTENDL_H
