@@ -196,7 +196,7 @@ void test_vc_strtrim()
 
 void test_vc_strsub()
 {
-    print_init("test_vc_strtrim\0");
+    print_init("test_vc_strsub\0");
     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
     test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
