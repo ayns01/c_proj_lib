@@ -40,6 +40,11 @@ int test_vc_atoi()
     int test_n_4 = vc_atoi("-23\0");
     test_result(n_4 != test_n_4, "test_vc_atoi\0");
 
+    int n_5 = -990909;
+    int test_n_5 = vc_atoi("-990909\0");
+    test_result(n_5 == test_n_5, "test_vc_atoi\0");
+
+    test_result(-103 == vc_atoi("-103\0"), "test_vc_atoi\0");
 }
 
 int main()
