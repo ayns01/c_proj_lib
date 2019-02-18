@@ -6,4 +6,11 @@
 #ifndef UNTITLED1_VC_STRCLR_H
 #define UNTITLED1_VC_STRCLR_H
 
+#include "vc_strlen.h"
+
+char *vc_strclr(const char *s, int c)
+{
+
+}
+
 #endif //UNTITLED1_VC_STRCLR_H
