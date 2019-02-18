@@ -6,9 +6,12 @@
 #ifndef UNTITLED1_VC_STRLEN_H
 #define UNTITLED1_VC_STRLEN_H
 
+#include <string.h>
+
+
 int vc_strlen(const char *str)
 {
-    int size = 0;
+    size_t size = 0;
     while (str[size] != '\0')
     {
         size++;

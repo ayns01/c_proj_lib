@@ -11,7 +11,27 @@
 
 char *vc_strtrim(char *s)
 {
-    return "";
+    int str_len = vc_strlen(s);
+    int str_first_space = 0;
+    int str_last_space = 0;
+    while (vc_isspace(s[str_first_space])) str_first_space++;
+    while (vc_isspace(s[str_len]))
+    {
+        str_len--;
+        str_last_space = str_len;
+    }
+//
+    s[str_last_space] = '\0';
+
+
+//    str_len = str_last_space - str_first_space;
+//    char *res = (char*) malloc(str_len * sizeof(char));
+//    for (int i = 0; i < str_len; ++i)
+//    {
+//        res[i] = s[str_first_space + i];
+//    }
+
+    return &s[str_first_space];
 }
 
 #endif //UNTITLED1_VC_STRTRIM_H
