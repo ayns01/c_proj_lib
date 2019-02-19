@@ -16,6 +16,7 @@
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
+#include "libvc/vc_strsplit.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -266,6 +267,15 @@ void test_vc_strclr()
     print_end();
 }
 
+void test_vc_strsplit(){
+    print_init("test_vc_strsplit\0");
+    char src[] = "HELLOTHEWORLD";
+    char charset = 'L';
+    char ** src2 = vc_strsplit(src,charset);
+    vc_print_words(src2);
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -284,5 +294,6 @@ int main()
     test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
+    test_vc_strsplit();
     return 0;
 }
