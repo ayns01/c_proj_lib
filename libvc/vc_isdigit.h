@@ -1,14 +1,13 @@
 /**
  * File              : vc_isdigit.h
- * Author            : Mihail Urmanschi
+ * Author            : Mihail, Masa, Ayana, Gui
  * Date              : 2019-02-17 13:29
  */
 #ifndef UNTITLED1_VC_ISDIGIT_H
 #define UNTITLED1_VC_ISDIGIT_H
 
-#define TRUE  1
-#define FALSE  0
 
+#include "vc_helper.h"
 
 int vc_isdigit(char c)
 {
