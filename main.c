@@ -188,7 +188,7 @@ void test_vc_tolower()
 
 void test_vc_toupper()
 {
-    print_init("test_vc_tolower\0");
+    print_init("test_vc_toupper\0");
     test_result(vc_toupper('a') == 'A');
     test_result(vc_toupper('z') == 'Z');
     test_result(vc_toupper('r') == 'R');
@@ -280,6 +280,15 @@ void test_vc_strclr()
     print_end();
 }
 
+void test_vc_putendl()
+{
+    print_init("test_vc_putendl\0");
+    vc_putendl("text on the first line\0");
+    vc_putendl("this text should be on the next line of the first line\0");
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -299,5 +308,6 @@ int main()
     test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
+    test_vc_putendl();
     return 0;
 }
