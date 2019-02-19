@@ -1,6 +1,6 @@
 /**
  * File              : vc_atoi.h
- * Author            : Mihail Urmanschi
+ * Author            : Mihail, Masa, Ayana, Gui
  * Date              : 2019-02-17 13:29
  */
 #ifndef UNTITLED1_VC_ATOI_H

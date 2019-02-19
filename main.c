@@ -16,6 +16,7 @@
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
+#include "libvc/vc_strncmp.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -157,6 +158,19 @@ void test_vc_strcmp()
     print_end();
 }
 
+void test_vc_strncmp()
+{
+    print_init("test_vc_strncmp\0");
+    test_result(vc_strncmp("qwe\0", "qwe\0", 1) == 0);
+    test_result(vc_strncmp("qw e\0", "qw e\0", 2) == 0);
+    test_result(vc_strncmp("q\0", "q\0", 1) == 0);
+    test_result(vc_strncmp("q123qwe123\0", "q123qwe123\0", 5) == 0);
+    test_result(vc_strncmp("q123qwe123\0", "qwe\0", 2) == -70);
+    test_result(vc_strncmp("a\0", "b\0", 1) == -1);
+    test_result(vc_strncmp("asdf\0", "bsdb\0", 3) == -1);
+    print_end();
+}
+
 
 void test_vc_tolower()
 {
@@ -266,6 +280,15 @@ void test_vc_strclr()
     print_end();
 }
 
+void test_vc_putendl()
+{
+    print_init("test_vc_putendl\0");
+    vc_putendl("text on the first line\0");
+    vc_putendl("this text should be on the next line of the first line\0");
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -274,6 +297,7 @@ int main()
     test_vc_isdigit();
     test_vc_isalpha();
     test_vc_strcmp();
+    test_vc_strncmp();
     test_vc_itoa();
     test_vc_tolower();
     test_vc_toupper();
@@ -284,5 +308,6 @@ int main()
     test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
+    test_vc_putendl();
     return 0;
 }
