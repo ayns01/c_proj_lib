@@ -266,6 +266,15 @@ void test_vc_strclr()
     print_end();
 }
 
+void test_vc_putendl()
+{
+    print_init("test_vc_putendl\0");
+    vc_putendl("text on the first line\0");
+    vc_putendl("this text should be on the next line of the first line\0");
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -284,5 +293,6 @@ int main()
     test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
+    test_vc_putendl();
     return 0;
 }
