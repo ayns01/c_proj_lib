@@ -1,6 +1,6 @@
 /**
  * File              : vc_strcat.h
- * Author            : Mihail Urmanschi
+ * Author            : Mihail, Masa, Ayana, Gui
  * Date              : 2019-02-17 13:27
  */
 #ifndef UNTITLED1_VC_STRCAT_H
