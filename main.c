@@ -174,7 +174,7 @@ void test_vc_tolower()
 
 void test_vc_toupper()
 {
-    print_init("test_vc_tolower\0");
+    print_init("test_vc_toupper\0");
     test_result(vc_toupper('a') == 'A');
     test_result(vc_toupper('z') == 'Z');
     test_result(vc_toupper('r') == 'R');
