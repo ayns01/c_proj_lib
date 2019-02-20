@@ -17,6 +17,7 @@
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
 
 #define KRED  "\x1B[31m"
@@ -290,6 +291,22 @@ void test_vc_putendl()
 
 }
 
+void test_vc_strmap()
+{
+
+    print_init((char*)__func__);
+    
+    const char *originalStr = "Hello!";
+    // -> "Ifmmp""
+    char *newStrings = vc_strmap(originalStr, applyCharToChar);
+    for (int i = 0; originalStr[i] != '\0'; ++i) {
+        test_result(--(newStrings[i]) == originalStr[i]);
+        test_result(&newStrings[i] != &originalStr[i]);
+    }
+
+    print_end();
+}
+
 void test_vc_strdup()
 {
     print_init((char*)__func__);
@@ -325,6 +342,7 @@ int main()
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
+    test_vc_strmap();
     test_vc_strdup();
 
     return 0;
