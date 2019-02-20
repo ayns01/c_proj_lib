@@ -12,6 +12,7 @@
 #include "libvc/vc_strtrim.h"
 #include "libvc/vc_strsub.h"
 #include "libvc/vc_strstr.h"
+#include "libvc/vc_strnstr.h"
 #include "libvc/vc_strcat.h"
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
@@ -243,6 +244,26 @@ void test_vc_strstr()
     print_end();
 }
 
+void test_vc_strnstr()
+{
+    print_init("test_vc_strnstr\0");
+    test_result(vc_strcmp(vc_strnstr("asd", "asd", 5), "asd") == TRUE);
+
+    // check for equal pointer
+    char *str = "asd";
+    int p = &str[0];
+    int p_t = &vc_strnstr(str, "asd", 4)[0];
+    test_result(p == p_t);
+
+    test_result(vc_strcmp(vc_strnstr("my sentence", "sentence", 12), "sentence") == TRUE);
+
+    test_result(vc_strcmp(vc_strnstr("Foo Bar", "Bar", 8), "Bar") == TRUE);
+
+    print_end();
+
+
+}
+
 void test_vc_strlen()
 {
     print_init("test_vc_strlen\0");
@@ -304,6 +325,7 @@ int main()
     test_vc_strtrim();
     test_vc_strsub();
     test_vc_strstr();
+    test_vc_strnstr();
     test_vc_strlen();
     test_vc_strcat();
     test_vc_strcpy();
