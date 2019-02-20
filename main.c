@@ -221,9 +221,12 @@ void test_vc_strtrim()
 void test_vc_strsub()
 {
     print_init((char*)__func__);
-    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
-    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
-    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
+    char *source = "I like pasta";
+
+    test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
+    test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
+    test_result((int)vc_strsub(source, 99999, 0) != TRUE);
+
     print_end();
 }
 
@@ -386,5 +389,7 @@ int main()
     test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
+    test_vc_strsub();
+
     return 0;
 }
