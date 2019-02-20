@@ -9,7 +9,6 @@
 
 
 void vc_strdel(char **as){
-    //thats it ??
     free(*as);
 }
 #endif //UNTITLED1_VC_STRDEL_H
