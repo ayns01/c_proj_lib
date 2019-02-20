@@ -16,7 +16,10 @@
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
+#include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_strnew.h"
+#include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
 #include "libvc/vc_strrchr.h"
@@ -207,12 +210,12 @@ void test_vc_strtrim()
 {
     print_init((char *) __func__);
     char s[] = " asd \0";
+    test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
     test_result(vc_strcmp(vc_strtrim(s), "asd\0") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("  asd  "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("  a s d  "), "a s d") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("  asd  "), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("  a s d  "), "a s d") == TRUE);
     print_end();
 }
 
@@ -243,6 +246,10 @@ void test_vc_strstr()
     test_result(p_2 == p_t_2);
 
     test_result(vc_strcmp(vc_strstr("my sentence", "sentence"), "sentence") == TRUE);
+
+    // In case not found
+    test_result(vc_strstr("my sentence", "your sentence") == 0);
+
     print_end();
 }
 
@@ -290,6 +297,38 @@ void test_vc_putendl()
     vc_putendl("this text should be on the next line of the first line\0");
     print_end();
 
+}
+
+
+void test_vc_strsplit(){
+    print_init("test_vc_strsplit\0");
+    char src[] = "HELLOTHEWORLD";
+    char charset = 'L';
+    char ** src2 = vc_strsplit(src,charset);
+    vc_print_words(src2);
+    print_end();
+}
+
+
+void test_vc_strnew(){
+    print_init((char*)__func__);
+    char *a = vc_strnew(2);
+    a[0] = 'A';
+    a[1] = 'B';
+    a[2] = 'C';
+    a[3] = 'D';
+    a[4] = 'E';
+    printf("%s",a);
+    //Ask About this functionality
+    print_end();
+}
+
+
+void test_vc_puts(){
+    print_init((char*)__func__);
+    vc_puts("YAAAAY");
+    vc_puts("WOW");
+    print_end();
 }
 
 void test_vc_strmap()
@@ -370,9 +409,11 @@ int main()
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
+    test_vc_strsplit();
+    test_vc_strnew();
+    test_vc_puts();
     test_vc_strmap();
-    test_vc_strdup();
+    test_vc_strdup(); 
     test_vc_strrchr();
-
     return 0;
 }
