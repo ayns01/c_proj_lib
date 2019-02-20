@@ -245,6 +245,10 @@ void test_vc_strstr()
     test_result(p_2 == p_t_2);
 
     test_result(vc_strcmp(vc_strstr("my sentence", "sentence"), "sentence") == TRUE);
+
+    // In case not found
+    test_result(vc_strstr("my sentence", "your sentence") == 0);
+
     print_end();
 }
 
