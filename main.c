@@ -17,6 +17,7 @@
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_strdup.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -289,6 +290,21 @@ void test_vc_putendl()
 
 }
 
+void test_vc_strdup()
+{
+    print_init((char*)__func__);
+
+    char source[] = "HelloWorld!";
+    char *duplicated = vc_strdup(source);
+
+    for (int i = 0; source[i] != '\0'; ++i) {
+        test_result(duplicated[i] == source[i]);
+        test_result(&duplicated[i] != &source[i]);
+    }
+
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -309,5 +325,7 @@ int main()
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
+    test_vc_strdup();
+
     return 0;
 }
