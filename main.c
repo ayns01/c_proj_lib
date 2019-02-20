@@ -19,6 +19,7 @@
 #include "libvc/vc_strncmp.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_strrchr.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -48,7 +49,7 @@ static void test_result(int res)
 
 static void test_vc_atoi()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     int n = 123;
     int test_n = vc_atoi("123\0");
     test_result(n == test_n);
@@ -76,7 +77,7 @@ static void test_vc_atoi()
 
 void test_vc_isdigit()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_isdigit('0') == TRUE);
     test_result(vc_isdigit('1') == TRUE);
     test_result(vc_isdigit('2') == TRUE);
@@ -92,7 +93,7 @@ void test_vc_isdigit()
 
 void test_vc_isupper()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_isupper('Z') == TRUE);
     test_result(vc_isupper('A') == TRUE);
     test_result(vc_isupper('P') == TRUE);
@@ -103,7 +104,7 @@ void test_vc_isupper()
 
 void test_vc_islower()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_islower('Z') != TRUE);
     test_result(vc_islower('R') != TRUE);
     test_result(vc_islower('A') != TRUE);
@@ -120,7 +121,7 @@ void test_vc_islower()
 
 void test_vc_isalpha()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_isalpha('Z') == TRUE);
     test_result(vc_isalpha('R') == TRUE);
     test_result(vc_isalpha('A') == TRUE);
@@ -135,7 +136,7 @@ void test_vc_isalpha()
 
 void test_vc_itoa()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_itoa(123), "123\0") == TRUE);
     test_result(vc_strcmp(vc_itoa(1), "1\0") == TRUE);
     test_result(vc_strcmp(vc_itoa(-123), "-123\0") == TRUE);
@@ -149,7 +150,7 @@ void test_vc_itoa()
 
 void test_vc_strcmp()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp("qwe\0", "qwe\0") == TRUE);
     test_result(vc_strcmp("qw e\0", "qw e\0") == TRUE);
     test_result(vc_strcmp("q\0", "q\0") == TRUE);
@@ -176,7 +177,7 @@ void test_vc_strncmp()
 
 void test_vc_tolower()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_tolower('A') == 'a');
     test_result(vc_tolower('Z') == 'z');
     test_result(vc_tolower('R') == 'r');
@@ -190,7 +191,7 @@ void test_vc_tolower()
 
 void test_vc_toupper()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_toupper('a') == 'A');
     test_result(vc_toupper('z') == 'Z');
     test_result(vc_toupper('r') == 'R');
@@ -204,7 +205,7 @@ void test_vc_toupper()
 
 void test_vc_strtrim()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     char s[] = " asd \0";
     test_result(vc_strcmp(vc_strtrim(s), "asd\0") == TRUE);
 //    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
@@ -217,7 +218,7 @@ void test_vc_strtrim()
 
 void test_vc_strsub()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
     test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
@@ -226,7 +227,7 @@ void test_vc_strsub()
 
 void test_vc_strstr()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_strstr("asd", "asd"), "asd") == TRUE);
 
     // check for equal pointer
@@ -247,7 +248,7 @@ void test_vc_strstr()
 
 void test_vc_strlen()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strlen("12345\0") == 5);
     test_result(vc_strlen("1234 5\0") == 6);
     test_result(vc_strlen("asd asd\0") == 7);
@@ -258,7 +259,7 @@ void test_vc_strlen()
 
 void test_vc_strcat()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     char *str = "I am \0";
     test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
     print_end();
@@ -266,13 +267,13 @@ void test_vc_strcat()
 
 void test_vc_strcpy()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     print_end();
 }
 
 void test_vc_strclr()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_strchr("asd z asd\0", 'z'), "z asd\0"));
     test_result(vc_strcmp(vc_strchr("ad z asd\0", 'z'), "z asd\0"));
     test_result(vc_strcmp(vc_strchr("d z asd\0", 'z'), "z asd\0"));
@@ -294,12 +295,13 @@ void test_vc_putendl()
 void test_vc_strmap()
 {
 
-    print_init((char*)__func__);
-    
+    print_init((char *) __func__);
+
     const char *originalStr = "Hello!";
     // -> "Ifmmp""
     char *newStrings = vc_strmap(originalStr, applyCharToChar);
-    for (int i = 0; originalStr[i] != '\0'; ++i) {
+    for (int i = 0; originalStr[i] != '\0'; ++i)
+    {
         test_result(--(newStrings[i]) == originalStr[i]);
         test_result(&newStrings[i] != &originalStr[i]);
     }
@@ -309,15 +311,41 @@ void test_vc_strmap()
 
 void test_vc_strdup()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
 
     char source[] = "HelloWorld!";
     char *duplicated = vc_strdup(source);
 
-    for (int i = 0; source[i] != '\0'; ++i) {
+    for (int i = 0; source[i] != '\0'; ++i)
+    {
         test_result(duplicated[i] == source[i]);
         test_result(&duplicated[i] != &source[i]);
     }
+
+    print_end();
+}
+
+void test_vc_strrchr()
+{
+    print_init((char *) __func__);
+
+    test_result(vc_strcmp(vc_strrchr("asd", 'a'), "asd") == TRUE);
+
+    // check for equal pointer
+    char *str = "asd";
+    int p = &str[1];
+    int p_t = &vc_strrchr(str, 's')[0];
+    int p_t_n = &vc_strrchr(str, 's')[1];
+    test_result(p == p_t);
+    test_result(p != p_t_n);
+
+    // check for equal pointer
+    char *str_2 = "01234567839";
+    int p_2 = &str_2[9];
+    int p_2_n = &str_2[3];
+    int p_t_2 = &vc_strrchr(str_2, '3')[0];
+    test_result(p_2 == p_t_2);
+    test_result(p_2_n != p_t_2);
 
     print_end();
 }
@@ -344,6 +372,7 @@ int main()
     test_vc_putendl();
     test_vc_strmap();
     test_vc_strdup();
+    test_vc_strrchr();
 
     return 0;
 }
