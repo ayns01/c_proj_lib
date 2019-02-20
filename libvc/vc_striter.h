@@ -6,7 +6,7 @@
 #ifndef UNTITLED1_VC_STRITER_H
 #define UNTITLED1_VC_STRITER_H
 
-#include <unistd.h>
+#include <string.h>
 
 void vc_striter(char *s, void (*f)(char *))
 {

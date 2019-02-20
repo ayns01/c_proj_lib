@@ -19,6 +19,7 @@
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strncmp.h"
 #include "libvc/vc_striter.h"
+#include "libvc/vc_memcpy.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -324,6 +325,25 @@ void test_vc_striter()
     print_end();
 }
 
+void test_vc_memcpy() {
+    print_init("test_vc_memcpy\0");
+    char dest[100];
+    char *src = "Pink Panther";
+    vc_memcpy(dest, src, 6);
+    test_result(vc_strcmp(dest))
+    printf("Copied string is %s", dest);
+
+    int isrc[] = {1, 2, 3, 4, 5};
+    int n = sizeof(isrc) / sizeof(isrc[0]);
+    int idest[n];
+    int i;
+    vc_memcpy(idest, isrc, sizeof(isrc));
+    printf("\nCopied array is ");
+    for (i=0; i<n; i++)
+        printf("%d ", idest[i]);
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -346,5 +366,6 @@ int main()
     test_vc_strclr();
     test_vc_putendl();
     test_vc_striter();
+    test_vc_memcpy();
     return 0;
 }

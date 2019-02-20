@@ -6,4 +6,12 @@
 #ifndef UNTITLED1_VC_MEMCPY_H
 #define UNTITLED1_VC_MEMCPY_H
 
+void vc_memcpy(void * dest, const void * src, unsigned int n) {
+    char *csrc = (char *)src;
+    char *cdest = (char *)dest;
+
+    for (int i=0; i<n; i++)
+        cdest[i] = csrc[i];
+}
+
 #endif //UNTITLED1_VC_MEMCPY_H
