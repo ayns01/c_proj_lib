@@ -289,6 +289,17 @@ void test_vc_putendl()
 
 }
 
+void test_vc_putchar()
+{
+    print_init((char*)__func__);
+    printf("\'c\' should be prinded next : ");
+    vc_putchar('c');
+    vc_putchar('c');
+    vc_putchar('c');
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -309,5 +320,6 @@ int main()
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
+    test_vc_putchar();
     return 0;
 }
