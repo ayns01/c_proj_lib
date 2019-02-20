@@ -330,17 +330,18 @@ void test_vc_memcpy() {
     char dest[100];
     char *src = "Pink Panther";
     vc_memcpy(dest, src, 6);
-    test_result(vc_strcmp(dest))
-    printf("Copied string is %s", dest);
+    test_result(vc_strcmp(dest, "Pink P\0"));
 
     int isrc[] = {1, 2, 3, 4, 5};
     int n = sizeof(isrc) / sizeof(isrc[0]);
     int idest[n];
     int i;
     vc_memcpy(idest, isrc, sizeof(isrc));
-    printf("\nCopied array is ");
-    for (i=0; i<n; i++)
-        printf("%d ", idest[i]);
+    test_result(idest[0] == 1);
+    test_result(idest[1] == 2);
+    test_result(idest[2] == 3);
+    test_result(idest[3] == 4);
+    test_result(idest[4] == 5);
     print_end();
 }
 
