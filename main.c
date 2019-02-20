@@ -16,7 +16,10 @@
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
+#include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_strnew.h"
+#include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
 
@@ -190,7 +193,7 @@ void test_vc_tolower()
 
 void test_vc_toupper()
 {
-    print_init((char*)__func__);
+    print_init("test_vc_tolower\0");
     test_result(vc_toupper('a') == 'A');
     test_result(vc_toupper('z') == 'Z');
     test_result(vc_toupper('r') == 'R');
@@ -206,12 +209,12 @@ void test_vc_strtrim()
 {
     print_init((char*)__func__);
     char s[] = " asd \0";
+    test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
     test_result(vc_strcmp(vc_strtrim(s), "asd\0") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("  asd  "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("  a s d  "), "a s d") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("  asd  "), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("  a s d  "), "a s d") == TRUE);
     print_end();
 }
 
@@ -256,13 +259,13 @@ void test_vc_strlen()
     print_end();
 }
 
-void test_vc_strcat()
-{
-    print_init((char*)__func__);
-    char *str = "I am \0";
-    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
-    print_end();
-}
+//void test_vc_strcat()
+//{
+//    print_init((char*)__func__);
+//    char *str = "I am \0";
+//    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
+//    print_end();
+//}
 
 void test_vc_strcpy()
 {
@@ -289,6 +292,38 @@ void test_vc_putendl()
     vc_putendl("this text should be on the next line of the first line\0");
     print_end();
 
+}
+
+
+void test_vc_strsplit(){
+    print_init("test_vc_strsplit\0");
+    char src[] = "HELLOTHEWORLD";
+    char charset = 'L';
+    char ** src2 = vc_strsplit(src,charset);
+    vc_print_words(src2);
+    print_end();
+}
+
+
+void test_vc_strnew(){
+    print_init((char*)__func__);
+    char *a = vc_strnew(2);
+    a[0] = 'A';
+    a[1] = 'B';
+    a[2] = 'C';
+    a[3] = 'D';
+    a[4] = 'E';
+    printf("%s",a);
+    //Ask About this functionality
+    print_end();
+}
+
+
+void test_vc_puts(){
+    print_init((char*)__func__);
+    vc_puts("YAAAAY");
+    vc_puts("WOW");
+    print_end();
 }
 
 void test_vc_strmap()
@@ -338,12 +373,14 @@ int main()
     test_vc_strsub();
     test_vc_strstr();
     test_vc_strlen();
-    test_vc_strcat();
+ //   test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
+    test_vc_strsplit();
+    test_vc_strnew();
+    test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
-
     return 0;
 }
