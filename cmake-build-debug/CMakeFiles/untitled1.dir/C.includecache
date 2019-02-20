@@ -70,6 +70,8 @@ vc_strlen.h
 string.h
 -
 
+/Users/guilherme/finalCProject/libvc/vc_strncmp.h
+
 /Users/guilherme/finalCProject/libvc/vc_strsplit.h
 stdio.h
 -
@@ -133,4 +135,6 @@ libvc/vc_strchr.h
 /Users/guilherme/finalCProject/libvc/vc_strchr.h
 libvc/vc_strsplit.h
 /Users/guilherme/finalCProject/libvc/vc_strsplit.h
+libvc/vc_strncmp.h
+/Users/guilherme/finalCProject/libvc/vc_strncmp.h
 

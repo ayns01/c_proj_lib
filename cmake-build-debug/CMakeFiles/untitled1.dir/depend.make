@@ -16,6 +16,7 @@ CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strclr.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strcmp.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strcpy.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strlen.h
+CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strncmp.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strsplit.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strstr.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strsub.h
