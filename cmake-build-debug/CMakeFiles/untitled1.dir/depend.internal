@@ -11,6 +11,7 @@ CMakeFiles/untitled1.dir/main.c.o
  /Users/guilherme/finalCProject/libvc/vc_putchar.h
  /Users/guilherme/finalCProject/libvc/vc_putendl.h
  /Users/guilherme/finalCProject/libvc/vc_putnbr.h
+ /Users/guilherme/finalCProject/libvc/vc_puts.h
  /Users/guilherme/finalCProject/libvc/vc_strcat.h
  /Users/guilherme/finalCProject/libvc/vc_strchr.h
  /Users/guilherme/finalCProject/libvc/vc_strclr.h
@@ -18,6 +19,7 @@ CMakeFiles/untitled1.dir/main.c.o
  /Users/guilherme/finalCProject/libvc/vc_strcpy.h
  /Users/guilherme/finalCProject/libvc/vc_strlen.h
  /Users/guilherme/finalCProject/libvc/vc_strncmp.h
+ /Users/guilherme/finalCProject/libvc/vc_strnew.h
  /Users/guilherme/finalCProject/libvc/vc_strsplit.h
  /Users/guilherme/finalCProject/libvc/vc_strstr.h
  /Users/guilherme/finalCProject/libvc/vc_strsub.h

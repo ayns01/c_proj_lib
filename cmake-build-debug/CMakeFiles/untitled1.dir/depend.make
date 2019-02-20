@@ -10,6 +10,7 @@ CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_memalloc.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_putchar.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_putendl.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_putnbr.h
+CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_puts.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strcat.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strchr.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strclr.h
@@ -17,6 +18,7 @@ CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strcmp.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strcpy.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strlen.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strncmp.h
+CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strnew.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strsplit.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strstr.h
 CMakeFiles/untitled1.dir/main.c.o: ../libvc/vc_strsub.h

@@ -18,6 +18,8 @@
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_strnew.h"
+#include "libvc/vc_puts.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -255,13 +257,13 @@ void test_vc_strlen()
     print_end();
 }
 
-void test_vc_strcat()
-{
-    print_init((char*)__func__);
-    char *str = "I am \0";
-    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
-    print_end();
-}
+//void test_vc_strcat()
+//{
+//    print_init((char*)__func__);
+//    char *str = "I am \0";
+//    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
+//    print_end();
+//}
 
 void test_vc_strcpy()
 {
@@ -299,6 +301,29 @@ void test_vc_strsplit(){
     print_end();
 }
 
+
+void test_vc_strnew(){
+    print_init((char*)__func__);
+    char *a = vc_strnew(2);
+    a[0] = 'A';
+    a[1] = 'B';
+    a[2] = 'C';
+    a[3] = 'D';
+    a[4] = 'E';
+    printf("%s",a);
+    //Ask About this functionality
+    print_end();
+}
+
+
+void test_vc_puts(){
+    print_init((char*)__func__);
+    vc_puts("YAAAAY");
+    vc_puts("WOW");
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -315,10 +340,12 @@ int main()
     test_vc_strsub();
     test_vc_strstr();
     test_vc_strlen();
-    test_vc_strcat();
+ //   test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
     test_vc_strsplit();
+    test_vc_strnew();
+    test_vc_puts();
     return 0;
 }

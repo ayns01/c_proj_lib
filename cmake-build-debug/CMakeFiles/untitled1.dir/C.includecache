@@ -42,6 +42,12 @@ zconf.h
 vc_putchar.h
 /Users/guilherme/finalCProject/libvc/vc_putchar.h
 
+/Users/guilherme/finalCProject/libvc/vc_puts.h
+zconf.h
+-
+vc_strlen.h
+/Users/guilherme/finalCProject/libvc/vc_strlen.h
+
 /Users/guilherme/finalCProject/libvc/vc_strcat.h
 string.h
 -
@@ -71,6 +77,14 @@ string.h
 -
 
 /Users/guilherme/finalCProject/libvc/vc_strncmp.h
+
+/Users/guilherme/finalCProject/libvc/vc_strnew.h
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
 
 /Users/guilherme/finalCProject/libvc/vc_strsplit.h
 stdio.h
@@ -137,4 +151,8 @@ libvc/vc_strsplit.h
 /Users/guilherme/finalCProject/libvc/vc_strsplit.h
 libvc/vc_strncmp.h
 /Users/guilherme/finalCProject/libvc/vc_strncmp.h
+libvc/vc_strnew.h
+/Users/guilherme/finalCProject/libvc/vc_strnew.h
+libvc/vc_puts.h
+/Users/guilherme/finalCProject/libvc/vc_puts.h
 
