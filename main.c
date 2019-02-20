@@ -313,10 +313,6 @@ void test_vc_strnew(){
     print_init((char*)__func__);
     char *a = vc_strnew(2);
     a[0] = 'A';
-    a[1] = 'B';
-    a[2] = 'C';
-    a[3] = 'D';
-    a[4] = 'E';
     printf("%s",a);
     //Ask About this functionality
     print_end();
