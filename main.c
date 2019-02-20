@@ -191,12 +191,12 @@ void test_vc_strtrim()
 {
     print_init("test_vc_strtrim\0");
     char s[] = " asd \0";
+    test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
     test_result(vc_strcmp(vc_strtrim(s), "asd\0") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("  asd  "), "asd") == TRUE);
-//    test_result(vc_strcmp(vc_strtrim("  a s d  "), "a s d") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("asd "), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("  asd  "), "asd") == TRUE);
+    test_result(vc_strcmp(vc_strtrim("  a s d  "), "a s d") == TRUE);
     print_end();
 }
 

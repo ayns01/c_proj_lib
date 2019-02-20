@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="untitled1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/guilherme/finalCProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/guilherme/finalCProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/guilherme/finalCProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="untitled1">
+				<Option output="/Users/guilherme/finalCProject/cmake-build-debug/untitled1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/guilherme/finalCProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 untitled1"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="untitled1/fast">
+				<Option output="/Users/guilherme/finalCProject/cmake-build-debug/untitled1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/guilherme/finalCProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 untitled1/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/guilherme/finalCProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_atoi.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_bzero.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_helper.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_isalnum.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_isalpha.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_isascii.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_isdigit.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_isprint.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_itoa.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memalloc.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memccpy.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memchr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memcmp.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memcpy.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memdel.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memmove.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_memset.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_putchar.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_putendl.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_putnbr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_puts.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strcat.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strchr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strclr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strcmp.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strcpy.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strdel.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strdup.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_striter.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strjoin.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strlcat.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strlen.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strmap.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strncat.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strncmp.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strncpy.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strnew.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strnstr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strrchr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strsplit.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strstr.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strsub.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_strtrim.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_tolower.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/libvc/vc_toupper.h">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/main.c">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/Users/guilherme/finalCProject/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
