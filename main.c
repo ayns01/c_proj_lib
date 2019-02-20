@@ -292,12 +292,17 @@ void test_vc_putendl()
 void test_vc_putchar()
 {
     print_init((char*)__func__);
-    printf("\'c\' should be prinded next : ");
-    vc_putchar('c');
-    vc_putchar('c');
-    vc_putchar('c');
+    vc_putchar('t');
+    vc_putchar('e');
+    vc_putchar('s');
+    vc_putchar('t');
+    vc_putchar(' ');
+    vc_putchar('w');
+    vc_putchar('o');
+    vc_putchar('r');
+    vc_putchar('k');
+    vc_putchar('s');
     print_end();
-
 }
 
 int main()

@@ -21,7 +21,7 @@
 
 void vc_putchar(char c)
 {
-    write(0, &c, 1);
+    write(1, &c, 1);
 }
 
 
