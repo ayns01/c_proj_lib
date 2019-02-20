@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="untitled1" targetName="untitled1" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -12,10 +10,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31d34d93-ac76-497e-aa9b-a8b17a4d60b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_atoi.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_atoi.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_bzero.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_bzero.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_helper.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_helper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_isalnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_isalnum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_isalpha.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_isalpha.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_isascii.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_isascii.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_isdigit.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_isdigit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_isprint.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_isprint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_itoa.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_itoa.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memalloc.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memalloc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memccpy.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memccpy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memchr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memchr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memcmp.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memcmp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memcpy.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memcpy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memdel.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memdel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memmove.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memmove.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_memset.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_memset.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_putchar.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_putchar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_putendl.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_putendl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_putnbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_putnbr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_puts.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_puts.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strcat.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strcat.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strchr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strchr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strclr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strclr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strcmp.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strcmp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strcpy.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strcpy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strdel.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strdel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strdup.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strdup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_striter.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_striter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strjoin.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strjoin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strlcat.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strlcat.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strlen.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strlen.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strmap.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strmap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strncat.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strncat.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strncmp.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strncmp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strncpy.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strncpy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strnew.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strnew.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strnstr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strnstr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strrchr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strrchr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strsplit.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strsplit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strstr.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strstr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_strsub.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strsub.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libvc/vc_strtrim.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_strtrim.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_tolower.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_tolower.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvc/vc_toupper.h" beforeDir="false" afterPath="$PROJECT_DIR$/libvc/vc_toupper.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" afterPath="$PROJECT_DIR$/test" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,26 +67,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="194" selection-start-line="194" selection-end-line="194" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="101">
+              <caret line="207" selection-start-line="207" selection-end-line="207" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libvc/vc_strtrim.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
-              <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -56,8 +95,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/libvc/vc_strtrim.h" />
+        <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
   </component>
@@ -78,7 +117,7 @@
         <subPane>
           <expand>
             <path>
-              <item name="untitled1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="finalCProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="finalCProject" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -107,13 +146,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="untitled1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled1" TARGET_NAME="untitled1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled1" RUN_TARGET_NAME="untitled1">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -124,29 +156,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550618871398</updated>
-      <workItem from="1550618873423" duration="2033000" />
+      <workItem from="1550618873423" duration="2302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2033000" />
+    <option name="totallyTimeSpent" value="2302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Messages" weight="0.3295325" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="CMake" visible="true" weight="0.3295325" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.299886" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.299886" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35917902" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -165,7 +196,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.c</url>
-          <line>289</line>
+          <line>317</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -186,20 +217,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="194" selection-start-line="194" selection-end-line="194" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libvc/vc_strtrim.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="207" selection-start-line="207" selection-end-line="207" />
         </state>
       </provider>
     </entry>
