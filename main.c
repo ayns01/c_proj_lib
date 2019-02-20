@@ -20,6 +20,8 @@
 #include "libvc/vc_strncmp.h"
 #include "libvc/vc_strnew.h"
 #include "libvc/vc_puts.h"
+#include "libvc/vc_strmap.h"
+#include "libvc/vc_strdup.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -292,6 +294,7 @@ void test_vc_putendl()
 
 }
 
+
 void test_vc_strsplit(){
     print_init("test_vc_strsplit\0");
     char src[] = "HELLOTHEWORLD";
@@ -321,7 +324,37 @@ void test_vc_puts(){
     vc_puts("YAAAAY");
     vc_puts("WOW");
     print_end();
+}
 
+void test_vc_strmap()
+{
+
+    print_init((char*)__func__);
+    
+    const char *originalStr = "Hello!";
+    // -> "Ifmmp""
+    char *newStrings = vc_strmap(originalStr, applyCharToChar);
+    for (int i = 0; originalStr[i] != '\0'; ++i) {
+        test_result(--(newStrings[i]) == originalStr[i]);
+        test_result(&newStrings[i] != &originalStr[i]);
+    }
+
+    print_end();
+}
+
+void test_vc_strdup()
+{
+    print_init((char*)__func__);
+
+    char source[] = "HelloWorld!";
+    char *duplicated = vc_strdup(source);
+
+    for (int i = 0; source[i] != '\0'; ++i) {
+        test_result(duplicated[i] == source[i]);
+        test_result(&duplicated[i] != &source[i]);
+    }
+
+    print_end();
 }
 
 int main()
@@ -347,5 +380,7 @@ int main()
     test_vc_strsplit();
     test_vc_strnew();
     test_vc_puts();
+    test_vc_strmap();
+    test_vc_strdup();
     return 0;
 }
