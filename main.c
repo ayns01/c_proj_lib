@@ -19,6 +19,7 @@
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_isascii.h"
 #include "libvc/vc_strjoin.h"
 #include "libvc/vc_striter.h"
 #include "libvc/vc_memcpy.h"
@@ -522,6 +523,27 @@ void test_vc_strrchr()
     print_end();
 }
 
+void test_vc_isascii()
+{
+
+    print_init((char *) __func__);
+    for (int i = 0; i <= 127; ++i)
+    {
+        test_result(vc_isascii(i) == TRUE);
+    }
+    for (int j = 128; j < 255; ++j)
+    {
+        test_result(vc_isascii(j) == FALSE);
+    }
+    for (int k = -50; k < 0; ++k)
+    {
+        test_result(vc_isascii(k) == FALSE);
+    }
+
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -543,6 +565,7 @@ int main()
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
+    test_vc_isascii();
     test_vc_strclr();
     test_vc_strjoin();
     test_vc_striter();
