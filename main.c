@@ -36,6 +36,7 @@
 #include "libvc/vc_memset.h"
 #include "libvc/vc_memdel.h"
 #include "libvc/vc_memcmp.h"
+#include "libvc/vc_bzero.h"
 #include "libvc/vc_memmove.h"
 
 #define KRED  "\x1B[31m"
@@ -648,6 +649,19 @@ void test_vc_memalloc()
 }
 
 
+
+void test_vc_bzero() {
+    print_init((char*)__func__);
+
+    char str[] = "Hello!";
+    vc_bzero(str, 3);
+    test_result(str[0] == 0);
+    test_result(str[1] == 0);
+    test_result(str[2] == 0);
+    test_result(str[3] != 0);
+
+}
+  
 void test_vc_memmove()
 {
     print_init((char *) __func__);
@@ -666,7 +680,6 @@ void test_vc_memmove()
     char dst3[] = "a";
     vc_memmove(dst3, src2, 99);
     test_result(vc_strcmp(dst3, "a"));
-
     print_end();
 }
 
@@ -714,6 +727,7 @@ int main()
     test_vc_memset();
     test_vc_memdel();
     test_vc_memalloc();
+    test_vc_bzero();
     test_vc_memmove();
 
     return 0;
