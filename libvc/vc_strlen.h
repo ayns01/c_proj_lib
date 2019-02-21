@@ -16,7 +16,7 @@ int vc_strlen(const char *str)
     {
         size++;
     }
-    return size;
+    return (int)size;
 }
 
 #endif //UNTITLED1_VC_STRLEN_H
