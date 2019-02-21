@@ -33,6 +33,7 @@
 #include "libvc/vc_strrchr.h"
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
+#include "libvc/vc_bzero.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -237,11 +238,11 @@ void test_vc_strsub()
 //    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
 
 //     print_init((char*)__func__);
-     char *source = "I like pasta";
+    char *source = "I like pasta";
 
-     test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
-     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
-     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
+    test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
+    test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
+    test_result((int) vc_strsub(source, 99999, 0) != TRUE);
 
 //     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
 //     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
@@ -364,7 +365,7 @@ void test_vc_strjoin()
 
 void test_vc_putchar()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     vc_putchar('t');
     vc_putchar('e');
     vc_putchar('s');
@@ -387,7 +388,8 @@ void test_vc_striter()
     print_end();
 }
 
-void test_vc_memcpy() {
+void test_vc_memcpy()
+{
     print_init("test_vc_memcpy\0");
     char dest[100];
     char *src = "Pink Panther";
@@ -472,7 +474,8 @@ void test_vc_strdup()
     print_end();
 }
 
-void test_vc_memcmp() {
+void test_vc_memcmp()
+{
     print_init("test_vc_memcmp\0");
     char *str1 = "Dog Cat Tiger";
     char *str2 = "Dog Ant Rabbit";
@@ -486,16 +489,18 @@ void test_vc_memcmp() {
     print_end();
 }
 
-void test_vc_memchr() {
+void test_vc_memchr()
+{
     print_init("test_vc_memchr\0");
     const char *str = "abcdef\0";
     const char ch = 'c';
-    test_result((vc_strcmp(vc_memchr(str,ch, vc_strlen(str)), "cdef")));
+    test_result((vc_strcmp(vc_memchr(str, ch, vc_strlen(str)), "cdef")));
     print_end();
 }
 
-void test_vc_memset(){
-    print_init((char*)__func__);
+void test_vc_memset()
+{
+    print_init((char *) __func__);
     char str[50];
 
     vc_strcpy(str, "This is string library function");
@@ -586,6 +591,24 @@ void test_vc_isalnum()
         test_result(vc_isalnum(j));
     }
 
+    print_end();
+}
+
+void test_vc_bzero()
+{
+    print_init((char *) __func__);
+
+    char str[] = "asdasdfasdf\0";
+    test_result(str[0] == 'a');
+    test_result(str[0] != '\0');
+
+    vc_bzero(str, 3);
+
+    test_result(str[0] != 'a');
+    test_result(str[0] == '\0');
+
+    test_result(str[4] == 's');
+    test_result(str[4] != '\0');
 
     print_end();
 }
@@ -607,43 +630,77 @@ void test_vc_putnbr()
 
 int main()
 {
-    test_vc_isupper();
-    test_vc_islower();
-    test_vc_atoi();
-    test_vc_isdigit();
-    test_vc_isalpha();
-    test_vc_strcmp();
-    test_vc_strncmp();
-    test_vc_itoa();
-    test_vc_tolower();
-    test_vc_toupper();
-    test_vc_strtrim();
-    test_vc_strstr();
-    test_vc_strnstr();
-    test_vc_strlen();
-    test_vc_strcat();
-    test_vc_strcpy();
-    test_vc_strchr();
-    test_vc_putendl();
-    test_vc_putchar();
-    test_vc_putnbr();
-    test_vc_isalnum();
-    test_vc_isascii();
-    test_vc_strclr();
-    test_vc_strjoin();
-    test_vc_striter();
-    test_vc_memcpy();
-    test_vc_memcmp();
-    test_vc_memchr();
-    test_vc_strsplit();
-    test_vc_strnew();
-    test_vc_puts();
-    test_vc_strmap();
-    test_vc_strdup(); 
-    test_vc_strrchr();
-    test_vc_strdup();
-    test_vc_isprint();
-    test_vc_strsub();
+//    test_vc_isupper();
+//    test_vc_islower();
+//    test_vc_atoi();
+//    test_vc_isdigit();
+//    test_vc_isalpha();
+//    test_vc_strcmp();
+//    test_vc_strncmp();
+//    test_vc_itoa();
+//    test_vc_tolower();
+//    test_vc_toupper();
+//    test_vc_strtrim();
+//    test_vc_strstr();
+//    test_vc_strnstr();
+//    test_vc_strlen();
+//    test_vc_strcat();
+//    test_vc_strcpy();
+//    test_vc_strchr();
+//    test_vc_putendl();
+//    test_vc_putchar();
+//    test_vc_putnbr();
+//    test_vc_isalnum();
+//    test_vc_isascii();
+//    test_vc_strclr();
+//    test_vc_strjoin();
+//    test_vc_striter();
+//    test_vc_memcpy();
+//    test_vc_memcmp();
+//    test_vc_memchr();
+//    test_vc_strsplit();
+//    test_vc_strnew();
+//    test_vc_puts();
+//    test_vc_strmap();
+//    test_vc_strdup();
+//    test_vc_strrchr();
+//    test_vc_strdup();
+//    test_vc_isprint();
+//    test_vc_strsub();
     test_vc_memset();
+    test_vc_bzero();
     return 0;
+
+
+    /**
+     * memset // done
+     * bzero
+     * memcpy
+     * memccpy
+     * memmove
+- memchr
+     memcmp
+     strlen
+     strdup
+     strcpy
+- strncpy
+     strcat
+     strncat
+     strlcat
+     strchr
+- strrchr
+     strstr
+     strnstr
+     strcmp
+     strncmp
+- atoi
+     isalpha
+     isdigit
+     isalnum
+     isascii
+- isprint
+     toupper
+     tolower
+     puts(vc_putstr)
+     */
 }

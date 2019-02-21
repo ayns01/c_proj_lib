@@ -7,13 +7,15 @@
 #define UNTITLED1_VC_BZERO_H
 
 #include "vc_strlen.h"
+#include <string.h>
 
-void vc_bzero(char *s, int n)
+void vc_bzero(void *s, int n)
 {
     if (n == 0) return;
+    char *ptr = (char*)s;
     for (int i = 0; i < n; ++i)
     {
-        s[i] = '\0';
+        ptr[i] = '\0';
     }
 
 }
