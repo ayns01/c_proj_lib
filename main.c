@@ -39,6 +39,7 @@
 #include "libvc/vc_strlcat.h"
 #include "libvc/vc_memdel.h"
 #include "libvc/vc_memcmp.h"
+#include "libvc/vc_strdel.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -453,7 +454,7 @@ void test_vc_memcpy()
 void test_vc_strsplit()
 {
     print_init("test_vc_strsplit\0");
-    char src[] = "HELLOTHEWORLD";
+    char src[] = "HELLOTHEWORLD\0";
     char charset = 'L';
     char **src2 = vc_strsplit(src, charset);
     vc_print_words(src2);
@@ -475,8 +476,8 @@ void test_vc_strnew()
 void test_vc_puts()
 {
     print_init((char *) __func__);
-    vc_puts("YAAAAY");
-    vc_puts("WOW");
+    vc_puts("YAAAAY\0");
+    vc_puts("WOW\0");
     print_end();
 }
 
@@ -669,8 +670,18 @@ void test_vc_putnbr()
 void test_vc_memdel()
 {
     print_init((char *) __func__);
-    char **str = (char**)malloc(2 * sizeof(char*));
+    char **str = (char **) malloc(2 * sizeof(char *));
     vc_memdel(str);
+    test_result(*str == NULL);
+    print_end();
+}
+
+
+void test_vc_strdel()
+{
+    print_init((char *) __func__);
+    char **str = (char **) malloc(2 * sizeof(char *));
+    vc_strdel(str);
     test_result(*str == NULL);
     print_end();
 }
@@ -688,20 +699,6 @@ void test_vc_memalloc()
 
 int main()
 {
-//    test_vc_isupper();
-//    test_vc_islower();
-//    test_vc_itoa();
-//    test_vc_strtrim();
-//    test_vc_putendl();
-//    test_vc_putchar();
-//    test_vc_putnbr();
-//    test_vc_strclr();
-//    test_vc_strjoin();
-//    test_vc_striter();
-//    test_vc_strsplit();
-//    test_vc_strnew();
-//    test_vc_strmap();
-//    test_vc_strsub();
     test_vc_memset();
     test_vc_bzero();
     test_vc_memcpy();
@@ -732,6 +729,20 @@ int main()
 
     test_vc_memdel();
     test_vc_memalloc();
+    test_vc_strnew();
+    test_vc_strdel();
+    test_vc_strclr();
+    test_vc_striter();
+    test_vc_strmap();
+    test_vc_strsub();
+    test_vc_strjoin();
+    test_vc_strtrim();
+    test_vc_strsplit();
+    test_vc_itoa();
+    test_vc_putnbr();
+    test_vc_putchar();
+    test_vc_putendl();
+
 
     return 0;
 
@@ -768,6 +779,16 @@ int main()
      puts(vc_putstr) // done
      ////////////////
      memalloc // done
-
+     memdell // done
+     strnew // done
+test_vc_strdel()// done
+test_vc_strclr// done
+     test_vc_striter// done
+test_vc_strmap// done
+     test_vc_strsub// done
+     test_vc_strjoin// done
+     test_vc_strtrim// done
+     test_vc_strsplit// done
+     test_vc_itoa// done
      */
 }
