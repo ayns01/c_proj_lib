@@ -19,6 +19,8 @@ RETURN VALUE         top
 
  */
 
+
+// ask about the void stuff
 void *vc_memset(void *s, int c, size_t n)
 {
 //    for (int i = 0; i < n; ++i)
