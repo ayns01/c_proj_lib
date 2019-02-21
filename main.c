@@ -25,6 +25,7 @@
 #include "libvc/vc_striter.h"
 #include "libvc/vc_memcpy.h"
 #include "libvc/vc_memcmp.h"
+#include "libvc/vc_memchr.h"
 #include "libvc/vc_strnew.h"
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
@@ -466,7 +467,14 @@ void test_vc_memcmp() {
     char *str6 = "Buzz";
     test_result(vc_memcmp(str5, str6, 10) == -1);
     print_end();
+}
 
+void test_vc_memchr() {
+    print_init("test_vc_memchr\0");
+    const char *str = "abcdef\0";
+    const char ch = 'c';
+    test_result((vc_strcmp(vc_memchr(str,ch, vc_strlen(str)), "cdef")));
+    print_end();
 }
 
 void test_vc_memset(){
@@ -607,6 +615,7 @@ int main()
     test_vc_striter();
     test_vc_memcpy();
     test_vc_memcmp();
+    test_vc_memchr();
     test_vc_strsplit();
     test_vc_strnew();
     test_vc_puts();
