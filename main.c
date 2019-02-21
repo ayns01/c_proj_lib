@@ -231,16 +231,16 @@ void test_vc_strtrim()
 void test_vc_strsub()
 {
     print_init((char *) __func__);
-    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
-    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
-    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
+//    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
+//    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
+//    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
 
 //     print_init((char*)__func__);
-//     char *source = "I like pasta";
+     char *source = "I like pasta";
 
-//     test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
-//     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
-//     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
+     test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
+     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
+     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
 
 //     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
 //     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
@@ -308,8 +308,8 @@ void test_vc_strlen()
 void test_vc_strcat()
 {
     print_init((char *) __func__);
-    char *str = "I am \0";
-    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
+    char str[] = "I am \0";
+    test_result(vc_strcmp(vc_strcat(str, "batman\0"), "I am batman\0"));
     print_end();
 }
 
@@ -592,7 +592,6 @@ int main()
     test_vc_tolower();
     test_vc_toupper();
     test_vc_strtrim();
-    test_vc_strsub();
     test_vc_strstr();
     test_vc_strnstr();
     test_vc_strlen();
