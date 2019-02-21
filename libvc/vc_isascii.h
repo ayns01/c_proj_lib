@@ -8,13 +8,17 @@
 
 #include "vc_helper.h"
 
-/** checks whether c is a 7-bit unsigned char value that fits into the ASCII character set. **/
+/**
+ *
+ * DESCRIPTION
+     The isascii() function tests for an ASCII character, which is any character between 0 and octal
+     0177 inclusive.
+ * . **/
 int vc_isascii(int c)
 {
-    if(sizeof(c) == 7){
-
-    }
+    if(c >= 0 && c <= 127){
         return TRUE;
+    }
     return FALSE;
 }
 
