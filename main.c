@@ -22,6 +22,7 @@
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_memset.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -361,6 +362,21 @@ void test_vc_strdup()
     print_end();
 }
 
+void test_vc_memset(){
+    print_init((char*)__func__);
+    char str[50];
+
+    vc_strcpy(str, "This is string library function");
+    vc_puts(str);
+
+    vc_memset(str, '$', 7);
+    vc_puts(str);
+
+    print_end();
+}
+
+#include <stdlib.h>
+
 int main()
 {
     test_vc_isupper();
@@ -386,5 +402,6 @@ int main()
     test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
+    test_vc_memset();
     return 0;
 }
