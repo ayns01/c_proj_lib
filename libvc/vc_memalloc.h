@@ -9,7 +9,9 @@
 
 void *vc_memalloc(size_t size)
 {
-    return malloc(size * sizeof(size));
+    if (size == 0)
+        return (NULL);
+    return (void *) malloc(size * sizeof(size));
 }
 
 #endif //UNTITLED1_VC_MEMALLOC_H
