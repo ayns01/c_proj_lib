@@ -46,10 +46,10 @@ static void test_result(int res)
 {
     if (res)
     {
-        printf("%s test is passes\n", KGRN);
+        printf("%s test is passed\n", KGRN);
     } else
     {
-        printf("%s test is NOT passes\n", KRED);
+        printf("%s test is NOT passed\n", KRED);
 
     }
 }
@@ -304,7 +304,7 @@ void test_vc_strcpy()
     print_end();
 }
 
-void test_vc_strclr()
+void test_vc_strchr()
 {
     print_init((char *) __func__);
     test_result(vc_strcmp(vc_strchr("asd z asd\0", 'z'), "z asd\0"));
@@ -318,11 +318,23 @@ void test_vc_strclr()
 
 void test_vc_putendl()
 {
-    print_init("test_vc_putendl\0");
+    print_init((char *) __func__);
     vc_putendl("text on the first line\0");
     vc_putendl("this text should be on the next line of the first line\0");
     print_end();
+}
 
+void test_vc_strclr()
+{
+    print_init((char *) __func__);
+    char str1[] = "1234\0";
+    vc_strclr(str1);
+    test_result(str1[0] == '\0');
+    test_result(str1[1] == '\0');
+    test_result(str1[2] == '\0');
+    test_result(str1[3] == '\0');
+    test_result(str1[4] == '\0');
+    print_end();
 }
 
 void test_vc_strjoin()
@@ -450,8 +462,6 @@ void test_vc_memset(){
     print_end();
 }
 
-#include <stdlib.h>
-
 int main()
 {
     test_vc_isupper();
@@ -471,8 +481,9 @@ int main()
     test_vc_strlen();
  //   test_vc_strcat();
     test_vc_strcpy();
-    test_vc_strclr();
+    test_vc_strchr();
     test_vc_putendl();
+    test_vc_strclr();
     test_vc_strjoin();
     test_vc_striter();
     test_vc_memcpy();
