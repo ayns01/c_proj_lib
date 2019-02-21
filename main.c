@@ -20,6 +20,7 @@
 #include "libvc/vc_strncmp.h"
 #include "libvc/vc_striter.h"
 #include "libvc/vc_memcpy.h"
+#include "libvc/vc_memcmp.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -340,6 +341,21 @@ void test_vc_memcpy() {
     print_end();
 }
 
+void test_vc_memcmp() {
+    print_init("test_vc_memcmp\0");
+    char *str1 = "Dog Cat Tiger";
+    char *str2 = "Dog Ant Rabbit";
+    test_result(vc_memcmp(str1, str2, 10) == 1);
+    char *str3 = "Dog Cat Tigeo";
+    char *str4 = "Dog Cat Tiger";
+    test_result(vc_memcmp(str3, str4, 10) == 0);
+    char *str5 = "Butter";
+    char *str6 = "Buzz";
+    test_result(vc_memcmp(str5, str6, 10) == -1);
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -363,5 +379,6 @@ int main()
     test_vc_putendl();
     test_vc_striter();
     test_vc_memcpy();
+    test_vc_memcmp();
     return 0;
 }
