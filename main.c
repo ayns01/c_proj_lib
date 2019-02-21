@@ -27,6 +27,7 @@
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_strrchr.h"
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
 
@@ -227,17 +228,22 @@ void test_vc_strtrim()
 
 void test_vc_strsub()
 {
+    print_init((char *) __func__);
+    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
+    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
+    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
 
-    print_init((char*)__func__);
-    char *source = "I like pasta";
+//     print_init((char*)__func__);
+//     char *source = "I like pasta";
 
-    test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
-    test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
-    test_result((int)vc_strsub(source, 99999, 0) != TRUE);
+//     test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
+//     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
+//     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
 
 //     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
 //     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
 //     test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
+
     print_end();
 }
 
@@ -296,7 +302,6 @@ void test_vc_strlen()
     test_result(vc_strlen("asd asd\0") != 0);
     print_end();
 }
-
 
 void test_vc_strcat()
 {
@@ -492,6 +497,31 @@ void test_vc_isprint()
     print_end();
 }
 
+void test_vc_strrchr()
+{
+    print_init((char *) __func__);
+
+    test_result(vc_strcmp(vc_strrchr("asd", 'a'), "asd") == TRUE);
+
+    // check for equal pointer
+    char *str = "asd";
+    int p = &str[1];
+    int p_t = &vc_strrchr(str, 's')[0];
+    int p_t_n = &vc_strrchr(str, 's')[1];
+    test_result(p == p_t);
+    test_result(p != p_t_n);
+
+    // check for equal pointer
+    char *str_2 = "01234567839";
+    int p_2 = &str_2[9];
+    int p_2_n = &str_2[3];
+    int p_t_2 = &vc_strrchr(str_2, '3')[0];
+    test_result(p_2 == p_t_2);
+    test_result(p_2_n != p_t_2);
+
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -509,7 +539,7 @@ int main()
     test_vc_strstr();
     test_vc_strnstr();
     test_vc_strlen();
-    //   test_vc_strcat();
+    test_vc_strcat();
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
@@ -522,6 +552,8 @@ int main()
     test_vc_strnew();
     test_vc_puts();
     test_vc_strmap();
+    test_vc_strdup(); 
+    test_vc_strrchr();
     test_vc_strdup();
     test_vc_isprint();
     test_vc_strsub();
