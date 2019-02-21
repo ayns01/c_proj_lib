@@ -12,16 +12,22 @@
 #include "libvc/vc_strtrim.h"
 #include "libvc/vc_strsub.h"
 #include "libvc/vc_strstr.h"
+#include "libvc/vc_strnstr.h"
 #include "libvc/vc_strcat.h"
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_strjoin.h"
+#include "libvc/vc_striter.h"
+#include "libvc/vc_memcpy.h"
+#include "libvc/vc_memcmp.h"
 #include "libvc/vc_strnew.h"
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_memset.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -40,10 +46,10 @@ static void test_result(int res)
 {
     if (res)
     {
-        printf("%s test is passes\n", KGRN);
+        printf("%s test is passed\n", KGRN);
     } else
     {
-        printf("%s test is NOT passes\n", KRED);
+        printf("%s test is NOT passed\n", KRED);
 
     }
 }
@@ -51,7 +57,7 @@ static void test_result(int res)
 
 static void test_vc_atoi()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     int n = 123;
     int test_n = vc_atoi("123\0");
     test_result(n == test_n);
@@ -79,7 +85,7 @@ static void test_vc_atoi()
 
 void test_vc_isdigit()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_isdigit('0') == TRUE);
     test_result(vc_isdigit('1') == TRUE);
     test_result(vc_isdigit('2') == TRUE);
@@ -95,7 +101,7 @@ void test_vc_isdigit()
 
 void test_vc_isupper()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_isupper('Z') == TRUE);
     test_result(vc_isupper('A') == TRUE);
     test_result(vc_isupper('P') == TRUE);
@@ -106,7 +112,7 @@ void test_vc_isupper()
 
 void test_vc_islower()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_islower('Z') != TRUE);
     test_result(vc_islower('R') != TRUE);
     test_result(vc_islower('A') != TRUE);
@@ -123,7 +129,7 @@ void test_vc_islower()
 
 void test_vc_isalpha()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_isalpha('Z') == TRUE);
     test_result(vc_isalpha('R') == TRUE);
     test_result(vc_isalpha('A') == TRUE);
@@ -138,7 +144,7 @@ void test_vc_isalpha()
 
 void test_vc_itoa()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_itoa(123), "123\0") == TRUE);
     test_result(vc_strcmp(vc_itoa(1), "1\0") == TRUE);
     test_result(vc_strcmp(vc_itoa(-123), "-123\0") == TRUE);
@@ -152,7 +158,7 @@ void test_vc_itoa()
 
 void test_vc_strcmp()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp("qwe\0", "qwe\0") == TRUE);
     test_result(vc_strcmp("qw e\0", "qw e\0") == TRUE);
     test_result(vc_strcmp("q\0", "q\0") == TRUE);
@@ -179,7 +185,7 @@ void test_vc_strncmp()
 
 void test_vc_tolower()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_tolower('A') == 'a');
     test_result(vc_tolower('Z') == 'z');
     test_result(vc_tolower('R') == 'r');
@@ -193,7 +199,7 @@ void test_vc_tolower()
 
 void test_vc_toupper()
 {
-    print_init("test_vc_tolower\0");
+    print_init((char *) __func__);
     test_result(vc_toupper('a') == 'A');
     test_result(vc_toupper('z') == 'Z');
     test_result(vc_toupper('r') == 'R');
@@ -207,7 +213,7 @@ void test_vc_toupper()
 
 void test_vc_strtrim()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     char s[] = " asd \0";
     test_result(vc_strcmp(vc_strtrim(" asd"), "asd") == TRUE);
     test_result(vc_strcmp(vc_strtrim(" asd "), "asd") == TRUE);
@@ -227,12 +233,16 @@ void test_vc_strsub()
     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
 
+    print_init((char *) __func__);
+    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
+    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
+    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
     print_end();
 }
 
 void test_vc_strstr()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_strstr("asd", "asd"), "asd") == TRUE);
 
     // check for equal pointer
@@ -255,9 +265,29 @@ void test_vc_strstr()
     print_end();
 }
 
+void test_vc_strnstr()
+{
+    print_init("test_vc_strnstr\0");
+    test_result(vc_strcmp(vc_strnstr("asd", "asd", 5), "asd") == TRUE);
+
+    // check for equal pointer
+    char *str = "asd";
+    int p = &str[0];
+    int p_t = &vc_strnstr(str, "asd", 4)[0];
+    test_result(p == p_t);
+
+    test_result(vc_strcmp(vc_strnstr("my sentence", "sentence", 12), "sentence") == TRUE);
+
+    test_result(vc_strcmp(vc_strnstr("Foo Bar", "Bar", 8), "Bar") == TRUE);
+
+    print_end();
+
+
+}
+
 void test_vc_strlen()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
     test_result(vc_strlen("12345\0") == 5);
     test_result(vc_strlen("1234 5\0") == 6);
     test_result(vc_strlen("asd asd\0") == 7);
@@ -266,23 +296,24 @@ void test_vc_strlen()
     print_end();
 }
 
-//void test_vc_strcat()
-//{
-//    print_init((char*)__func__);
-//    char *str = "I am \0";
-//    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
-//    print_end();
-//}
 
-void test_vc_strcpy()
+void test_vc_strcat()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
+    char *str = "I am \0";
+    test_result(vc_strcmp(vc_strcat(str, "batman\0", vc_strlen("batman\0")), "I am batman\0"));
     print_end();
 }
 
-void test_vc_strclr()
+void test_vc_strcpy()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
+    print_end();
+}
+
+void test_vc_strchr()
+{
+    print_init((char *) __func__);
     test_result(vc_strcmp(vc_strchr("asd z asd\0", 'z'), "z asd\0"));
     test_result(vc_strcmp(vc_strchr("ad z asd\0", 'z'), "z asd\0"));
     test_result(vc_strcmp(vc_strchr("d z asd\0", 'z'), "z asd\0"));
@@ -294,13 +325,60 @@ void test_vc_strclr()
 
 void test_vc_putendl()
 {
-    print_init("test_vc_putendl\0");
+    print_init((char *) __func__);
     vc_putendl("text on the first line\0");
     vc_putendl("this text should be on the next line of the first line\0");
     print_end();
-
 }
 
+void test_vc_strclr()
+{
+    print_init((char *) __func__);
+    char str1[] = "1234\0";
+    vc_strclr(str1);
+    test_result(str1[0] == '\0');
+    test_result(str1[1] == '\0');
+    test_result(str1[2] == '\0');
+    test_result(str1[3] == '\0');
+    test_result(str1[4] == '\0');
+    print_end();
+}
+
+void test_vc_strjoin()
+{
+    print_init((char *) __func__);
+    test_result(vc_strcmp(vc_strjoin("I am \0", "Batman\0"), "I am Batman\0"));
+    test_result(vc_strcmp(vc_strjoin("I\0", " am\0"), "I am\0"));
+    test_result(vc_strcmp(vc_strjoin(" am \0", " I \0"), " am  I \0"));
+    print_end();
+}
+
+void test_vc_striter()
+{
+    print_init("test_vc_striter\0");
+    char *str = "Hello Kitty\0";
+    vc_striter(str, iter_char);
+    print_end();
+}
+
+void test_vc_memcpy() {
+    print_init("test_vc_memcpy\0");
+    char dest[100];
+    char *src = "Pink Panther";
+    vc_memcpy(dest, src, 6);
+    test_result(vc_strcmp(dest, "Pink P\0"));
+
+    int isrc[] = {1, 2, 3, 4, 5};
+    int n = sizeof(isrc) / sizeof(isrc[0]);
+    int idest[n];
+    int i;
+    vc_memcpy(idest, isrc, sizeof(isrc));
+    test_result(idest[0] == 1);
+    test_result(idest[1] == 2);
+    test_result(idest[2] == 3);
+    test_result(idest[3] == 4);
+    test_result(idest[4] == 5);
+}
 
 void test_vc_strsplit(){
     print_init("test_vc_strsplit\0");
@@ -360,6 +438,33 @@ void test_vc_strdup()
         test_result(duplicated[i] == source[i]);
         test_result(&duplicated[i] != &source[i]);
     }
+    print_end();
+}
+
+void test_vc_memcmp() {
+    print_init("test_vc_memcmp\0");
+    char *str1 = "Dog Cat Tiger";
+    char *str2 = "Dog Ant Rabbit";
+    test_result(vc_memcmp(str1, str2, 10) == 1);
+    char *str3 = "Dog Cat Tigeo";
+    char *str4 = "Dog Cat Tiger";
+    test_result(vc_memcmp(str3, str4, 10) == 0);
+    char *str5 = "Butter";
+    char *str6 = "Buzz";
+    test_result(vc_memcmp(str5, str6, 10) == -1);
+    print_end();
+
+}
+
+void test_vc_memset(){
+    print_init((char*)__func__);
+    char str[50];
+
+    vc_strcpy(str, "This is string library function");
+    vc_puts(str);
+
+    vc_memset(str, '$', 7);
+    vc_puts(str);
 
     print_end();
 }
@@ -379,17 +484,23 @@ int main()
     test_vc_strtrim();
     test_vc_strsub();
     test_vc_strstr();
+    test_vc_strnstr();
     test_vc_strlen();
  //   test_vc_strcat();
     test_vc_strcpy();
-    test_vc_strclr();
+    test_vc_strchr();
     test_vc_putendl();
+    test_vc_strclr();
+    test_vc_strjoin();
+    test_vc_striter();
+    test_vc_memcpy();
+    test_vc_memcmp();
     test_vc_strsplit();
     test_vc_strnew();
     test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
     test_vc_strsub();
-
+    test_vc_memset();
     return 0;
 }
