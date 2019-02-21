@@ -29,7 +29,7 @@ char *vc_strstr(char *str, char *to_find)
             }
         }
     }
-    return "NULL";
+    return 0;
 }
 
 #endif //UNTITLED1_VC_STRSTR_H
