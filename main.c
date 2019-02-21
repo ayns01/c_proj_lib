@@ -22,6 +22,7 @@
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_memcmp.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -357,6 +358,29 @@ void test_vc_strdup()
     print_end();
 }
 
+
+void test_vc_memcmp()
+{
+    print_init((char*)__func__);
+    char str1[15];
+    char str2[15];
+    int ret;
+
+    memcpy(str1, "abcdef", 6);
+    memcpy(str2, "ABCDEF", 6);
+
+    ret = memcmp(str1, str2, 5);
+
+    if(ret > 0) {
+        printf("str2 is less than str1");
+    } else if(ret < 0) {
+        printf("str1 is less than str2");
+    } else {
+        printf("str1 is equal to str2");
+    }
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -382,5 +406,6 @@ int main()
     test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
+    test_vc_memcmp();
     return 0;
 }
