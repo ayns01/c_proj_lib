@@ -34,6 +34,9 @@
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
 #include "libvc/vc_bzero.h"
+#include "libvc/vc_strncpy.h"
+#include "libvc/vc_strncat.h"
+#include "libvc/vc_strlcat.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -315,9 +318,46 @@ void test_vc_strcat()
     print_end();
 }
 
+void test_vc_strncat()
+{
+    print_init((char *) __func__);
+    char str[] = "I am \0";
+    test_result(vc_strcmp(vc_strncat(str, "batman\0", 3), "I am bat\0"));
+    print_end();
+}
+
+void test_vc_strlcat()
+{
+    print_init((char *) __func__);
+    char *str = "I am \0";
+    char *des = "I am \0";
+    int rez = vc_strlcat(str, des, 3);
+    test_result(rez == 8);
+    print_end();
+}
+
 void test_vc_strcpy()
 {
     print_init((char *) __func__);
+
+    char *str = (char *) malloc(50 * sizeof(char));
+    test_result(str[0] != 'T');
+    vc_strcpy(str, "This is string library function\0");
+    test_result(str[0] == 'T');
+
+    print_end();
+}
+
+void test_vc_strncpy()
+{
+    print_init((char *) __func__);
+
+    char st[50];
+    test_result(st[0] != 'r');
+    vc_strncpy(st, "This is another thing\0", 3);
+    test_result(st[0] == 'T');
+    test_result(st[4] == '\0');
+
     print_end();
 }
 
@@ -632,75 +672,81 @@ int main()
 {
 //    test_vc_isupper();
 //    test_vc_islower();
-//    test_vc_atoi();
-//    test_vc_isdigit();
-//    test_vc_isalpha();
-//    test_vc_strcmp();
-//    test_vc_strncmp();
 //    test_vc_itoa();
-//    test_vc_tolower();
-//    test_vc_toupper();
 //    test_vc_strtrim();
-//    test_vc_strstr();
-//    test_vc_strnstr();
-//    test_vc_strlen();
-//    test_vc_strcat();
-//    test_vc_strcpy();
-//    test_vc_strchr();
 //    test_vc_putendl();
 //    test_vc_putchar();
 //    test_vc_putnbr();
-//    test_vc_isalnum();
-//    test_vc_isascii();
 //    test_vc_strclr();
 //    test_vc_strjoin();
 //    test_vc_striter();
-//    test_vc_memcpy();
-//    test_vc_memcmp();
-//    test_vc_memchr();
 //    test_vc_strsplit();
 //    test_vc_strnew();
-//    test_vc_puts();
 //    test_vc_strmap();
-//    test_vc_strdup();
-//    test_vc_strrchr();
-//    test_vc_strdup();
-//    test_vc_isprint();
 //    test_vc_strsub();
     test_vc_memset();
     test_vc_bzero();
+    test_vc_memcpy();
+    test_vc_memcmp();
+    test_vc_memchr();
+    test_vc_strlen();
+    test_vc_strdup();
+    test_vc_strncpy();
+    test_vc_strcpy();
+    test_vc_strcat();
+    test_vc_strncat();
+    test_vc_strlcat();
+    test_vc_strchr();
+    test_vc_strrchr();
+    test_vc_strstr();
+    test_vc_strnstr();
+    test_vc_strcmp();
+    test_vc_strncmp();
+    test_vc_atoi();
+    test_vc_isalpha();
+    test_vc_isdigit();
+    test_vc_isalnum();
+    test_vc_isascii();
+    test_vc_isprint();
+    test_vc_toupper();
+    test_vc_tolower();
+    test_vc_puts();
+
     return 0;
 
 
     /**
      * memset // done
-     * bzero
-     * memcpy
-     * memccpy
-     * memmove
-- memchr
-     memcmp
-     strlen
-     strdup
-     strcpy
-- strncpy
-     strcat
-     strncat
-     strlcat
-     strchr
-- strrchr
-     strstr
-     strnstr
-     strcmp
-     strncmp
-- atoi
-     isalpha
-     isdigit
-     isalnum
-     isascii
-- isprint
-     toupper
-     tolower
-     puts(vc_putstr)
+     * bzero // done
+     * memcpy // done
+     * memccpy // in process
+     * memmove // in progress
+    - memchr // done
+     memcmp // done
+     strlen // done
+     strdup // done
+     strcpy // dome
+  - strncpy // done
+     strcat // done
+     strncat // done
+     strlcat // done
+     strchr // done
+- strrchr // done
+     strstr // done
+     strnstr // done
+     strcmp // done
+     strncmp // done
+- atoi // done
+     isalpha // done
+     isdigit // done
+     isalnum // done >>>>>>>>
+     isascii // done
+- isprint // done
+     toupper // done
+     tolower // done
+     puts(vc_putstr) // done
+     ////////////////
+     memalloc // done
+
      */
 }
