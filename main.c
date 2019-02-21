@@ -238,11 +238,11 @@ void test_vc_strsub()
 //    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
 
 //     print_init((char*)__func__);
-     char *source = "I like pasta";
+    char *source = "I like pasta";
 
-     test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
-     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
-     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
+    test_result(vc_strcmp(vc_strsub(source, 0, 2), "I ") == TRUE);
+    test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
+    test_result((int) vc_strsub(source, 99999, 0) != TRUE);
 
 //     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
 //     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
@@ -388,7 +388,8 @@ void test_vc_striter()
     print_end();
 }
 
-void test_vc_memcpy() {
+void test_vc_memcpy()
+{
     print_init("test_vc_memcpy\0");
     char dest[100];
     char *src = "Pink Panther";
@@ -468,7 +469,8 @@ void test_vc_strdup()
     print_end();
 }
 
-void test_vc_memcmp() {
+void test_vc_memcmp()
+{
     print_init("test_vc_memcmp\0");
     char *str1 = "Dog Cat Tiger";
     char *str2 = "Dog Ant Rabbit";
@@ -490,8 +492,9 @@ void test_vc_memchr() {
     print_end();
 }
 
-void test_vc_memset(){
-    print_init((char*)__func__);
+void test_vc_memset()
+{
+    print_init((char *) __func__);
     char str[50];
 
     vc_strcpy(str, "This is string library function");
@@ -598,7 +601,16 @@ void test_vc_putnbr()
     putchar('\n');
     vc_putnbr(1412341234);
     print_end();
+}
 
+void test_vc_memalloc()
+{
+    print_init((char *) __func__);
+    void *ptr1 = vc_memalloc(0);
+    test_result(ptr1 == NULL);
+    void *ptr2 = vc_memalloc(2);
+    test_result(ptr2 != NULL);
+    print_end();
 }
 
 
@@ -642,5 +654,6 @@ int main()
     test_vc_isprint();
     test_vc_strsub();
     test_vc_memset();
+    test_vc_memalloc();
     return 0;
 }
