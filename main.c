@@ -25,6 +25,7 @@
 #include "libvc/vc_striter.h"
 #include "libvc/vc_memcpy.h"
 #include "libvc/vc_memcmp.h"
+#include "libvc/vc_memchr.h"
 #include "libvc/vc_strnew.h"
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
@@ -33,6 +34,7 @@
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
 #include "libvc/vc_memdel.h"
+#include "libvc/vc_memcmp.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -362,6 +364,23 @@ void test_vc_strjoin()
     print_end();
 }
 
+void test_vc_putchar()
+{
+    print_init((char*)__func__);
+    vc_putchar('t');
+    vc_putchar('e');
+    vc_putchar('s');
+    vc_putchar('t');
+    vc_putchar(' ');
+    vc_putchar('w');
+    vc_putchar('o');
+    vc_putchar('r');
+    vc_putchar('k');
+    vc_putchar('s');
+    print_end();
+}
+
+
 void test_vc_striter()
 {
     print_init("test_vc_striter\0");
@@ -406,12 +425,7 @@ void test_vc_strnew()
     print_init((char *) __func__);
     char *a = vc_strnew(2);
     a[0] = 'A';
-    a[1] = 'B';
-    a[2] = 'C';
-    a[3] = 'D';
-    a[4] = 'E';
     printf("%s", a);
-    //Ask About this functionality
     print_end();
 }
 
@@ -469,7 +483,14 @@ void test_vc_memcmp()
     char *str6 = "Buzz";
     test_result(vc_memcmp(str5, str6, 10) == -1);
     print_end();
+}
 
+void test_vc_memchr() {
+    print_init("test_vc_memchr\0");
+    const char *str = "abcdef\0";
+    const char ch = 'c';
+    test_result((vc_strcmp(vc_memchr(str,ch, vc_strlen(str)), "cdef")));
+    print_end();
 }
 
 void test_vc_memset()
@@ -569,6 +590,7 @@ void test_vc_isalnum()
     print_end();
 }
 
+
 void test_vc_putnbr()
 {
     print_init((char *) __func__);
@@ -582,6 +604,7 @@ void test_vc_putnbr()
     print_end();
 }
 
+
 void test_vc_memdel()
 {
     print_init((char *) __func__);
@@ -590,6 +613,17 @@ void test_vc_memdel()
     test_result(*str == NULL);
     print_end();
 }
+
+void test_vc_memalloc()
+{
+    print_init((char *) __func__);
+    void *ptr1 = vc_memalloc(0);
+    test_result(ptr1 == NULL);
+    void *ptr2 = vc_memalloc(2);
+    test_result(ptr2 != NULL);
+    print_end();
+}
+
 
 int main()
 {
@@ -611,6 +645,7 @@ int main()
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
+    test_vc_putchar();
     test_vc_putnbr();
     test_vc_isalnum();
     test_vc_isascii();
@@ -619,6 +654,7 @@ int main()
     test_vc_striter();
     test_vc_memcpy();
     test_vc_memcmp();
+    test_vc_memchr();
     test_vc_strsplit();
     test_vc_strnew();
     test_vc_puts();
@@ -630,5 +666,7 @@ int main()
     test_vc_strsub();
     test_vc_memset();
     test_vc_memdel();
+    test_vc_memalloc();
+
     return 0;
 }

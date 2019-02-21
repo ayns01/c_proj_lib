@@ -30,7 +30,6 @@ static int vc_isspace(char c)
     return FALSE;
 }
 
-
 static void vc_putstr(char *str) {
 
     int i = 0;

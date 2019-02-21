@@ -5,6 +5,8 @@
  */
 #ifndef UNTITLED1_VC_MEMCMP_H
 #define UNTITLED1_VC_MEMCMP_H
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * vc_memcmp
