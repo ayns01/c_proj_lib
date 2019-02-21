@@ -12,12 +12,16 @@
 #include "libvc/vc_strtrim.h"
 #include "libvc/vc_strsub.h"
 #include "libvc/vc_strstr.h"
+#include "libvc/vc_strnstr.h"
 #include "libvc/vc_strcat.h"
 #include "libvc/vc_strcpy.h"
 #include "libvc/vc_strclr.h"
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_striter.h"
+#include "libvc/vc_memcpy.h"
+#include "libvc/vc_memcmp.h"
 #include "libvc/vc_strnew.h"
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
@@ -253,6 +257,26 @@ void test_vc_strstr()
     print_end();
 }
 
+void test_vc_strnstr()
+{
+    print_init("test_vc_strnstr\0");
+    test_result(vc_strcmp(vc_strnstr("asd", "asd", 5), "asd") == TRUE);
+
+    // check for equal pointer
+    char *str = "asd";
+    int p = &str[0];
+    int p_t = &vc_strnstr(str, "asd", 4)[0];
+    test_result(p == p_t);
+
+    test_result(vc_strcmp(vc_strnstr("my sentence", "sentence", 12), "sentence") == TRUE);
+
+    test_result(vc_strcmp(vc_strnstr("Foo Bar", "Bar", 8), "Bar") == TRUE);
+
+    print_end();
+
+
+}
+
 void test_vc_strlen()
 {
     print_init((char *) __func__);
@@ -296,12 +320,36 @@ void test_vc_putendl()
     vc_putendl("text on the first line\0");
     vc_putendl("this text should be on the next line of the first line\0");
     print_end();
-
 }
 
-
-void test_vc_strsplit()
+void test_vc_striter()
 {
+    print_init("test_vc_striter\0");
+    char *str = "Hello Kitty\0";
+    vc_striter(str, iter_char);
+    print_end();
+}
+
+void test_vc_memcpy() {
+    print_init("test_vc_memcpy\0");
+    char dest[100];
+    char *src = "Pink Panther";
+    vc_memcpy(dest, src, 6);
+    test_result(vc_strcmp(dest, "Pink P\0"));
+
+    int isrc[] = {1, 2, 3, 4, 5};
+    int n = sizeof(isrc) / sizeof(isrc[0]);
+    int idest[n];
+    int i;
+    vc_memcpy(idest, isrc, sizeof(isrc));
+    test_result(idest[0] == 1);
+    test_result(idest[1] == 2);
+    test_result(idest[2] == 3);
+    test_result(idest[3] == 4);
+    test_result(idest[4] == 5);
+}
+
+void test_vc_strsplit(){
     print_init("test_vc_strsplit\0");
     char src[] = "HELLOTHEWORLD";
     char charset = 'L';
@@ -363,8 +411,22 @@ void test_vc_strdup()
         test_result(duplicated[i] == source[i]);
         test_result(&duplicated[i] != &source[i]);
     }
-
     print_end();
+}
+
+void test_vc_memcmp() {
+    print_init("test_vc_memcmp\0");
+    char *str1 = "Dog Cat Tiger";
+    char *str2 = "Dog Ant Rabbit";
+    test_result(vc_memcmp(str1, str2, 10) == 1);
+    char *str3 = "Dog Cat Tigeo";
+    char *str4 = "Dog Cat Tiger";
+    test_result(vc_memcmp(str3, str4, 10) == 0);
+    char *str5 = "Butter";
+    char *str6 = "Buzz";
+    test_result(vc_memcmp(str5, str6, 10) == -1);
+    print_end();
+
 }
 
 void test_vc_memccpy()
@@ -398,11 +460,15 @@ int main()
     test_vc_strtrim();
     test_vc_strsub();
     test_vc_strstr();
+    test_vc_strnstr();
     test_vc_strlen();
     //   test_vc_strcat();
     test_vc_strcpy();
     test_vc_strclr();
     test_vc_putendl();
+    test_vc_striter();
+    test_vc_memcpy();
+    test_vc_memcmp();
     test_vc_strsplit();
     test_vc_strnew();
     test_vc_puts();
