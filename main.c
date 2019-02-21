@@ -19,6 +19,7 @@
 #include "libvc/vc_strchr.h"
 #include "libvc/vc_strsplit.h"
 #include "libvc/vc_strncmp.h"
+#include "libvc/vc_isalnum.h"
 #include "libvc/vc_isascii.h"
 #include "libvc/vc_strjoin.h"
 #include "libvc/vc_striter.h"
@@ -544,6 +545,26 @@ void test_vc_isascii()
 
 }
 
+void test_vc_isalnum()
+{
+    print_init((char *) __func__);
+    for (int i = '0'; i <= '9'; ++i)
+    {
+        test_result(vc_isalnum(i));
+    }
+    for (int j = 'a'; j <= 'z'; ++j)
+    {
+        test_result(vc_isalnum(j));
+    }
+    for (int j = 'A'; j <= 'Z'; ++j)
+    {
+        test_result(vc_isalnum(j));
+    }
+
+
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -565,6 +586,7 @@ int main()
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
+    test_vc_isalnum();
     test_vc_isascii();
     test_vc_strclr();
     test_vc_strjoin();
