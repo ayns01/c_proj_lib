@@ -34,6 +34,7 @@
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
 #include "libvc/vc_memcmp.h"
+#include "libvc/vc_bzero.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -614,6 +615,19 @@ void test_vc_memalloc()
 }
 
 
+void test_vc_bzero() {
+    print_init((char*)__func__);
+
+    char str[] = "Hello!";
+    vc_bzero(str, 3);
+    test_result(str[0] == 0);
+    test_result(str[1] == 0);
+    test_result(str[2] == 0);
+    test_result(str[3] != 0);
+
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -655,5 +669,7 @@ int main()
     test_vc_strsub();
     test_vc_memset();
     test_vc_memalloc();
+    test_vc_bzero();
+
     return 0;
 }
