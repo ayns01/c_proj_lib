@@ -33,6 +33,7 @@
 #include "libvc/vc_strrchr.h"
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
+#include "libvc/vc_memcmp.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -422,12 +423,7 @@ void test_vc_strnew()
     print_init((char *) __func__);
     char *a = vc_strnew(2);
     a[0] = 'A';
-    a[1] = 'B';
-    a[2] = 'C';
-    a[3] = 'D';
-    a[4] = 'E';
     printf("%s", a);
-    //Ask About this functionality
     print_end();
 }
 
@@ -590,6 +586,7 @@ void test_vc_isalnum()
     print_end();
 }
 
+
 void test_vc_putnbr()
 {
     print_init((char *) __func__);
@@ -639,7 +636,7 @@ int main()
     test_vc_strnew();
     test_vc_puts();
     test_vc_strmap();
-    test_vc_strdup(); 
+    test_vc_strdup();
     test_vc_strrchr();
     test_vc_strdup();
     test_vc_isprint();
