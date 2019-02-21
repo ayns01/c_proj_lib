@@ -6,6 +6,16 @@
 #ifndef UNTITLED1_VC_MEMCPY_H
 #define UNTITLED1_VC_MEMCPY_H
 
+/**
+ * vc_memcpy
+ *
+ * @param dest
+ * @param src
+ * @param n
+ *
+ * copies n characters from memory area src to memory area dest
+ */
+
 void vc_memcpy(void * dest, const void * src, unsigned int n) {
     char *csrc = (char *)src;
     char *cdest = (char *)dest;
