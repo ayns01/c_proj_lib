@@ -18,5 +18,4 @@ int vc_strncmp(char *s1, char *s2, unsigned int n)
     return *(unsigned char *)s1 - *(unsigned char *)s2;
 }
 
-
 #endif //UNTITLED1_VC_STRNCMP_H
