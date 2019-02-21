@@ -27,6 +27,7 @@
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
 
 #define KRED  "\x1B[31m"
@@ -226,6 +227,7 @@ void test_vc_strtrim()
 
 void test_vc_strsub()
 {
+
     print_init((char*)__func__);
     char *source = "I like pasta";
 
@@ -233,10 +235,9 @@ void test_vc_strsub()
     test_result(vc_strcmp(vc_strsub(source, 6, 6), " pasta") == TRUE);
     test_result((int)vc_strsub(source, 99999, 0) != TRUE);
 
-    print_init((char *) __func__);
-    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
-    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
-    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
+//     test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
+//     test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
+//     test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
     print_end();
 }
 
@@ -380,32 +381,35 @@ void test_vc_memcpy() {
     test_result(idest[4] == 5);
 }
 
-void test_vc_strsplit(){
+void test_vc_strsplit()
+{
     print_init("test_vc_strsplit\0");
     char src[] = "HELLOTHEWORLD";
     char charset = 'L';
-    char ** src2 = vc_strsplit(src,charset);
+    char **src2 = vc_strsplit(src, charset);
     vc_print_words(src2);
     print_end();
 }
 
 
-void test_vc_strnew(){
-    print_init((char*)__func__);
+void test_vc_strnew()
+{
+    print_init((char *) __func__);
     char *a = vc_strnew(2);
     a[0] = 'A';
     a[1] = 'B';
     a[2] = 'C';
     a[3] = 'D';
     a[4] = 'E';
-    printf("%s",a);
+    printf("%s", a);
     //Ask About this functionality
     print_end();
 }
 
 
-void test_vc_puts(){
-    print_init((char*)__func__);
+void test_vc_puts()
+{
+    print_init((char *) __func__);
     vc_puts("YAAAAY");
     vc_puts("WOW");
     print_end();
@@ -414,12 +418,13 @@ void test_vc_puts(){
 void test_vc_strmap()
 {
 
-    print_init((char*)__func__);
-    
+    print_init((char *) __func__);
+
     const char *originalStr = "Hello!";
     // -> "Ifmmp""
     char *newStrings = vc_strmap(originalStr, applyCharToChar);
-    for (int i = 0; originalStr[i] != '\0'; ++i) {
+    for (int i = 0; originalStr[i] != '\0'; ++i)
+    {
         test_result(--(newStrings[i]) == originalStr[i]);
         test_result(&newStrings[i] != &originalStr[i]);
     }
@@ -429,12 +434,13 @@ void test_vc_strmap()
 
 void test_vc_strdup()
 {
-    print_init((char*)__func__);
+    print_init((char *) __func__);
 
     char source[] = "HelloWorld!";
     char *duplicated = vc_strdup(source);
 
-    for (int i = 0; source[i] != '\0'; ++i) {
+    for (int i = 0; source[i] != '\0'; ++i)
+    {
         test_result(duplicated[i] == source[i]);
         test_result(&duplicated[i] != &source[i]);
     }
@@ -469,6 +475,23 @@ void test_vc_memset(){
     print_end();
 }
 
+void test_vc_isprint()
+{
+    print_init((char *) __func__);
+
+    for (int i = 0; i < 32; ++i)
+    {
+        test_result(vc_isprint(i) == FALSE);
+    }
+    for (int j = 32; j < 250; ++j)
+    {
+        test_result(vc_isprint(j) == TRUE);
+
+    }
+
+    print_end();
+}
+
 int main()
 {
     test_vc_isupper();
@@ -486,7 +509,7 @@ int main()
     test_vc_strstr();
     test_vc_strnstr();
     test_vc_strlen();
- //   test_vc_strcat();
+    //   test_vc_strcat();
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
@@ -500,6 +523,7 @@ int main()
     test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
+    test_vc_isprint();
     test_vc_strsub();
     test_vc_memset();
     return 0;
