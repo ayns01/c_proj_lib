@@ -11,22 +11,21 @@
 /**
  *
  *  void *memset(void *s, int c, size_t n);
-DESCRIPTION         top
-       The memset() function fills the first n bytes of the memory area
-       pointed to by s with the constant byte c.
+DESCRIPTION
+     The memset() function writes len bytes of value c (converted to an
+     unsigned char) to the string b.
 RETURN VALUE         top
        The memset() function returns a pointer to the memory area s.
 
  */
 
-void *vc_memset(void *s, int c, size_t n)
-{
-//    for (int i = 0; i < n; ++i)
-//    {
-//        s[i] = (char) c;
-//    }
+void *vc_memset(void *s, int c, size_t n){
+    unsigned char *p = (unsigned char *) s;
+
+    for(int i = 0; i < n; i++) {
+        p[i] = (unsigned char) c;
+    }
     return s;
 }
-
 
 #endif //UNTITLED1_VC_MEMSET_H
