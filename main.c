@@ -362,6 +362,23 @@ void test_vc_strjoin()
     print_end();
 }
 
+void test_vc_putchar()
+{
+    print_init((char*)__func__);
+    vc_putchar('t');
+    vc_putchar('e');
+    vc_putchar('s');
+    vc_putchar('t');
+    vc_putchar(' ');
+    vc_putchar('w');
+    vc_putchar('o');
+    vc_putchar('r');
+    vc_putchar('k');
+    vc_putchar('s');
+    print_end();
+}
+
+
 void test_vc_striter()
 {
     print_init("test_vc_striter\0");
@@ -587,6 +604,7 @@ void test_vc_putnbr()
 
 }
 
+
 int main()
 {
     test_vc_isupper();
@@ -607,6 +625,7 @@ int main()
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
+    test_vc_putchar();
     test_vc_putnbr();
     test_vc_isalnum();
     test_vc_isascii();

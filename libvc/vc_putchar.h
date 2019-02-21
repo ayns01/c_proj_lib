@@ -9,14 +9,19 @@
 #include <zconf.h>
 #include "vc_memalloc.h"
 
+/**
+ *  vc_putchar
+    Prototype void vc_putchar(char c);
+    Description Outputs the character c to the standard output.
+    Param # 1 The character to output
+    Return None.
+    libc write(2)
+ * @param c
+ */
+
 void vc_putchar(char c)
 {
-//    char *ch = (char*)malloc(2 * sizeof(char));
-    char *ch = (char*)vc_memalloc(2);
-    ch[0] = c;
-    ch[1] = '\0';
-//    char* ch = "a\0";
-    write(1, ch, 1);
+    write(1, &c, 1);
 }
 
 
