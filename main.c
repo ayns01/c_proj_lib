@@ -21,6 +21,7 @@
 #include "libvc/vc_striter.h"
 #include "libvc/vc_memcpy.h"
 #include "libvc/vc_memcmp.h"
+#include "libvc/vc_memchr.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -353,7 +354,14 @@ void test_vc_memcmp() {
     char *str6 = "Buzz";
     test_result(vc_memcmp(str5, str6, 10) == -1);
     print_end();
+}
 
+void test_vc_memchr() {
+    print_init("test_vc_memchr\0");
+    const char *str = "abcdef\0";
+    const char ch = 'c';
+    test_result((vc_strcmp(vc_memchr(str,ch, vc_strlen(str)), "cdef")));
+    print_end();
 }
 
 int main()
@@ -380,5 +388,6 @@ int main()
     test_vc_striter();
     test_vc_memcpy();
     test_vc_memcmp();
+    test_vc_memchr();
     return 0;
 }
