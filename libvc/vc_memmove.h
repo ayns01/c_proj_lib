@@ -6,4 +6,13 @@
 #ifndef UNTITLED1_VC_MEMMOVE_H
 #define UNTITLED1_VC_MEMMOVE_H
 
+char *vc_memmove(char *dst, const char *src, int len) {
+
+    for (int i = 0; i < len && src[i] != '\0'; ++i) {
+        dst[i] = src[i];
+    }
+
+    return dst;
+}
+
 #endif //UNTITLED1_VC_MEMMOVE_H

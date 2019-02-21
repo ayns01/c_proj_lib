@@ -6,6 +6,8 @@
 #ifndef UNTITLED1_VC_MEMDEL_H
 #define UNTITLED1_VC_MEMDEL_H
 
+#include <string.h>
+#include <stdlib.h>
 /**
  *
  * Prototype void vc_memdel(void **ap
@@ -17,9 +19,11 @@
     libc free(3)
  */
 
+
 void vc_memdel(void **ap)
 {
-
+    free(*ap);
+    *ap = NULL;
 }
 
 #endif //UNTITLED1_VC_MEMDEL_H

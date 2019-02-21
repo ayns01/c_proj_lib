@@ -30,11 +30,14 @@
 #include "libvc/vc_puts.h"
 #include "libvc/vc_strmap.h"
 #include "libvc/vc_strdup.h"
+#include "libvc/vc_memccpy.h"
 #include "libvc/vc_strrchr.h"
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
+#include "libvc/vc_memdel.h"
 #include "libvc/vc_memcmp.h"
 #include "libvc/vc_bzero.h"
+#include "libvc/vc_memmove.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -234,6 +237,9 @@ void test_vc_strtrim()
 void test_vc_strsub()
 {
     print_init((char *) __func__);
+    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
+    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
+    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
 //    test_result(vc_strcmp(vc_strsub("asd", "asd", "dsa"), "dsa") == TRUE);
 //    test_result(vc_strcmp(vc_strsub("I like pasta", "pasta", "meat"), "I like meat") == TRUE);
 //    test_result(vc_strcmp(vc_strsub("I like pasta", "like", "love"), "I love pasta") == TRUE);
@@ -293,8 +299,6 @@ void test_vc_strnstr()
     test_result(vc_strcmp(vc_strnstr("Foo Bar", "Bar", 8), "Bar") == TRUE);
 
     print_end();
-
-
 }
 
 void test_vc_strlen()
@@ -380,7 +384,6 @@ void test_vc_putchar()
     print_end();
 }
 
-
 void test_vc_striter()
 {
     print_init("test_vc_striter\0");
@@ -407,6 +410,7 @@ void test_vc_memcpy()
     test_result(idest[2] == 3);
     test_result(idest[3] == 4);
     test_result(idest[4] == 5);
+    print_end();
 }
 
 void test_vc_strsplit()
@@ -425,10 +429,15 @@ void test_vc_strnew()
     print_init((char *) __func__);
     char *a = vc_strnew(2);
     a[0] = 'A';
+    a[1] = 'B';
+    a[2] = 'C';
+    a[3] = 'D';
+    a[4] = 'E';
+    printf("%s", a);
+    //Ask About this functionality
     printf("%s", a);
     print_end();
 }
-
 
 void test_vc_puts()
 {
@@ -440,7 +449,6 @@ void test_vc_puts()
 
 void test_vc_strmap()
 {
-
     print_init((char *) __func__);
 
     const char *originalStr = "Hello!";
@@ -504,6 +512,22 @@ void test_vc_memset()
     vc_memset(str, '$', 7);
     vc_puts(str);
 
+    print_end();
+}
+
+void test_vc_memccpy()
+{
+    print_init((char *) __func__);
+
+    char *sr = "123\0";
+    char *des = malloc(4 * sizeof(char));
+    vc_memccpy(des, sr, '2', 4);
+    test_result(des[0] == sr[0]);
+    test_result(des[1] == sr[1]);
+    test_result(des[2] == sr[2]);
+    test_result(&des[0] != &sr[0]);
+    test_result(&des[1] != &sr[1]);
+    test_result(&des[2] != &sr[2]);
     print_end();
 }
 
@@ -604,6 +628,16 @@ void test_vc_putnbr()
     print_end();
 }
 
+
+void test_vc_memdel()
+{
+    print_init((char *) __func__);
+    char **str = (char**)malloc(2 * sizeof(char*));
+    vc_memdel(str);
+    test_result(*str == NULL);
+    print_end();
+}
+
 void test_vc_memalloc()
 {
     print_init((char *) __func__);
@@ -613,6 +647,7 @@ void test_vc_memalloc()
     test_result(ptr2 != NULL);
     print_end();
 }
+
 
 
 void test_vc_bzero() {
@@ -625,6 +660,26 @@ void test_vc_bzero() {
     test_result(str[2] == 0);
     test_result(str[3] != 0);
 
+}
+  
+void test_vc_memmove()
+{
+    print_init((char *) __func__);
+
+    char *src1 = "0123456";
+
+    char dst1[] = "aaaaaaa";
+    vc_memmove(dst1, src1, 3);
+    test_result(vc_strcmp(dst1, "012aaaa"));
+
+    char dst2[] = "a";
+    vc_memmove(dst2, src1, 99);
+    test_result(vc_strcmp(dst2, "0123456"));
+
+    char *src2 = "";
+    char dst3[] = "a";
+    vc_memmove(dst3, src2, 99);
+    test_result(vc_strcmp(dst3, "a"));
     print_end();
 }
 
@@ -644,6 +699,7 @@ int main()
     test_vc_strstr();
     test_vc_strnstr();
     test_vc_strlen();
+    //   test_vc_strcat();
     test_vc_strcat();
     test_vc_strcpy();
     test_vc_strchr();
@@ -663,13 +719,16 @@ int main()
     test_vc_puts();
     test_vc_strmap();
     test_vc_strdup();
+    test_vc_memccpy();
     test_vc_strrchr();
     test_vc_strdup();
     test_vc_isprint();
     test_vc_strsub();
     test_vc_memset();
+    test_vc_memdel();
     test_vc_memalloc();
     test_vc_bzero();
+    test_vc_memmove();
 
     return 0;
 }
