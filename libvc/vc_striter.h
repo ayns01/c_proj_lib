@@ -8,6 +8,11 @@
 
 #include <string.h>
 
+static void iter_char(char *str)
+{
+    printf("%s\n", str);
+}
+
 void vc_striter(char *s, void (*f)(char *))
 {
     if (s != NULL && f != NULL)

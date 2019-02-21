@@ -312,11 +312,6 @@ void test_vc_putendl()
 
 }
 
-void iter_char(char *str)
-{
-    printf("%s\n", str);
-}
-
 void test_vc_striter()
 {
     print_init("test_vc_striter\0");
