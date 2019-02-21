@@ -37,6 +37,8 @@
 #include "libvc/vc_strncpy.h"
 #include "libvc/vc_strncat.h"
 #include "libvc/vc_strlcat.h"
+#include "libvc/vc_memdel.h"
+#include "libvc/vc_memcmp.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -464,10 +466,6 @@ void test_vc_strnew()
     print_init((char *) __func__);
     char *a = vc_strnew(2);
     a[0] = 'A';
-    a[1] = 'B';
-    a[2] = 'C';
-    a[3] = 'D';
-    a[4] = 'E';
     printf("%s", a);
     //Ask About this functionality
     print_end();
@@ -653,6 +651,7 @@ void test_vc_bzero()
     print_end();
 }
 
+
 void test_vc_putnbr()
 {
     print_init((char *) __func__);
@@ -664,7 +663,26 @@ void test_vc_putnbr()
     putchar('\n');
     vc_putnbr(1412341234);
     print_end();
+}
 
+
+void test_vc_memdel()
+{
+    print_init((char *) __func__);
+    char **str = (char**)malloc(2 * sizeof(char*));
+    vc_memdel(str);
+    test_result(*str == NULL);
+    print_end();
+}
+
+void test_vc_memalloc()
+{
+    print_init((char *) __func__);
+    void *ptr1 = vc_memalloc(0);
+    test_result(ptr1 == NULL);
+    void *ptr2 = vc_memalloc(2);
+    test_result(ptr2 != NULL);
+    print_end();
 }
 
 
@@ -711,6 +729,9 @@ int main()
     test_vc_toupper();
     test_vc_tolower();
     test_vc_puts();
+
+    test_vc_memdel();
+    test_vc_memalloc();
 
     return 0;
 

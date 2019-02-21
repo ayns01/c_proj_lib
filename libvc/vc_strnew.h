@@ -5,7 +5,6 @@
  */
 #ifndef UNTITLED1_VC_STRNEW_H
 #define UNTITLED1_VC_STRNEW_H
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
