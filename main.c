@@ -565,6 +565,20 @@ void test_vc_isalnum()
     print_end();
 }
 
+void test_vc_putnbr()
+{
+    print_init((char *) __func__);
+    vc_putnbr(123);
+    putchar('\n');
+    vc_putnbr(321);
+    putchar('\n');
+    vc_putnbr(1);
+    putchar('\n');
+    vc_putnbr(1412341234);
+    print_end();
+
+}
+
 int main()
 {
     test_vc_isupper();
@@ -586,6 +600,7 @@ int main()
     test_vc_strcpy();
     test_vc_strchr();
     test_vc_putendl();
+    test_vc_putnbr();
     test_vc_isalnum();
     test_vc_isascii();
     test_vc_strclr();
