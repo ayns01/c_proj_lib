@@ -33,6 +33,7 @@
 #include "libvc/vc_strrchr.h"
 #include "libvc/vc_isprint.h"
 #include "libvc/vc_memset.h"
+#include "libvc/vc_memdel.h"
 #include "libvc/vc_memcmp.h"
 
 #define KRED  "\x1B[31m"
@@ -603,6 +604,16 @@ void test_vc_putnbr()
     print_end();
 }
 
+
+void test_vc_memdel()
+{
+    print_init((char *) __func__);
+    char **str = (char**)malloc(2 * sizeof(char*));
+    vc_memdel(str);
+    test_result(*str == NULL);
+    print_end();
+}
+
 void test_vc_memalloc()
 {
     print_init((char *) __func__);
@@ -654,6 +665,8 @@ int main()
     test_vc_isprint();
     test_vc_strsub();
     test_vc_memset();
+    test_vc_memdel();
     test_vc_memalloc();
+
     return 0;
 }
