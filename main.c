@@ -40,6 +40,7 @@
 #include "libvc/vc_memdel.h"
 #include "libvc/vc_memcmp.h"
 #include "libvc/vc_strdel.h"
+#include "libvc/vc_memccpy.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -449,6 +450,7 @@ void test_vc_memcpy()
     test_result(idest[2] == 3);
     test_result(idest[3] == 4);
     test_result(idest[4] == 5);
+    print_end();
 }
 
 void test_vc_strsplit()
@@ -548,6 +550,22 @@ void test_vc_memset()
     vc_memset(str, '$', 7);
     vc_puts(str);
 
+    print_end();
+}
+
+void test_vc_memccpy()
+{
+    print_init((char *) __func__);
+
+    char *sr = "123\0";
+    char *des = malloc(4 * sizeof(char));
+    vc_memccpy(des, sr, '2', 4);
+    test_result(des[0] == sr[0]);
+    test_result(des[1] == sr[1]);
+    test_result(des[2] == sr[2]);
+    test_result(&des[0] != &sr[0]);
+    test_result(&des[1] != &sr[1]);
+    test_result(&des[2] != &sr[2]);
     print_end();
 }
 
@@ -734,6 +752,11 @@ int main()
     test_vc_strclr();
     test_vc_striter();
     test_vc_strmap();
+    test_vc_strdup();
+    test_vc_memccpy();
+    test_vc_strrchr();
+    test_vc_strdup();
+    test_vc_isprint();
     test_vc_strsub();
     test_vc_strjoin();
     test_vc_strtrim();
