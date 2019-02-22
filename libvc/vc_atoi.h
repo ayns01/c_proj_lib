@@ -8,28 +8,6 @@
 
 #include "vc_strlen.h"
 
-int vc_atoi(const char *str)
-{
-    int result = 0, is_negative = 0, index = 0;
-    int size = vc_strlen(str);
-    if (str[0] == '-')
-    {
-        is_negative = 1;
-        index = 1;
-    }
-    for (; index < size; index++)
-    {
-        result += str[index] - '0';
-        if (index < size - 1)
-        {
-            result *= 10;
-        }
-    }
-    if (is_negative)
-    {
-        result *= -1;
-    }
-    return result;
-}
+int vc_atoi(const char *str);
 
 #endif //UNTITLED1_VC_ATOI_H

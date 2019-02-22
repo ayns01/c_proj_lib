@@ -21,23 +21,6 @@
     libc malloc(3)
  */
 
-char *vc_strjoin(char const *s1, char const *s2)
-{
-    int s1_len = vc_strlen(s1);
-    int s2_len = vc_strlen(s2);
-    int i;
-    char *res = (char *) malloc((s1_len + s2_len + 1) * sizeof(char));
-    for (i = 0; i < s1_len; ++i)
-    {
-        res[i] = s1[i];
-    }
-    i = 0;
-    for (int j = s1_len; j < s1_len + s2_len; ++j)
-    {
-        res[j] = s2[i++];
-    }
-    res[s1_len + s2_len + 1] = '\0';
-    return res;
-}
+char *vc_strjoin(char const *s1, char const *s2);
 
 #endif //UNTITLED1_VC_STRJOIN_H

@@ -34,9 +34,6 @@
  * @return
  */
 
-int vc_isalnum(char c)
-{
-    return vc_isdigit(c) || vc_isalpha(c);
-}
+int vc_isalnum(char c);
 
 #endif //UNTITLED1_VC_ISALNUM_H

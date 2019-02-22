@@ -8,18 +8,6 @@
 
 #include "vc_putchar.h"
 
-void vc_putnbr(int n)
-{
-    if (n < 10)
-        vc_putchar('0' + n);
-    if (n > 9)
-    {
-        int f, s;
-        f = n / 10;
-        s = n % 10;
-        vc_putnbr(f);
-        vc_putnbr(s);
-    }
-}
+void vc_putnbr(int n);
 
 #endif //UNTITLED1_VC_PUTNBR_H

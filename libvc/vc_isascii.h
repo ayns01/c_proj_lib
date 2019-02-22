@@ -14,12 +14,6 @@
      The isascii() function tests for an ASCII character, which is any character between 0 and octal
      0177 inclusive.
  * . **/
-int vc_isascii(int c)
-{
-    if(c >= 0 && c <= 127){
-        return TRUE;
-    }
-    return FALSE;
-}
+int vc_isascii(int c);
 
 #endif //UNTITLED1_VC_ISASCII_H

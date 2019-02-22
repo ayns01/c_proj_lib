@@ -8,13 +8,6 @@
 
 #include "vc_helper.h"
 
-char vc_tolower(char c)
-{
-    if (vc_isupper(c))
-    {
-        return c - ('A' - 'a');
-    }
-    return c;
-}
+char vc_tolower(char c);
 
 #endif //UNTITLED1_VC_TOLOWER_H

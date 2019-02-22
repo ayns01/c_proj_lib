@@ -9,12 +9,7 @@
 
 #include "vc_helper.h"
 
-int vc_isalpha(char c)
-{
-    if (vc_isupper(c) || vc_islower(c))
-        return TRUE;
-    return FALSE;
-}
+int vc_isalpha(char c);
 
 
 #endif //UNTITLED1_VC_ISALPHA_H

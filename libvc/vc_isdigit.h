@@ -9,11 +9,6 @@
 
 #include "vc_helper.h"
 
-int vc_isdigit(char c)
-{
-    if (c >= '0' && c <= '9')
-        return TRUE;
-    return FALSE;
-}
+int vc_isdigit(char c);
 
 #endif //UNTITLED1_VC_ISDIGIT_H

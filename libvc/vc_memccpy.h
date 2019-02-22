@@ -22,20 +22,6 @@
  */
 
 
-void *vc_memccpy(void *dest, const void *src, int c, size_t n)
-{
-
-    size_t *d = dest;
-    size_t *s = src;
-
-    for (int i = 0; i < n; ++i)
-    {
-        if ((s[i]) == c) return d;
-        *d = *s;
-        d++;
-        s++;
-    }
-    return d;
-}
+void *vc_memccpy(void *dest, const void *src, int c, size_t n);
 
 #endif //UNTITLED1_VC_MEMCCPY_H

@@ -19,10 +19,7 @@
  * @param c
  */
 
-void vc_putchar(char c)
-{
-    write(1, &c, 1);
-}
+void vc_putchar(char c);
 
 
 #endif //UNTITLED1_VC_PUTCHAR_H

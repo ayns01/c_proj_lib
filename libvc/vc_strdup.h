@@ -8,22 +8,6 @@
 
 #include <stdlib.h>
 
-char *vc_strdup(char *str) {
-
-    int length = 0;
-    for (int i = 0; str[i] != '\0'; ++i) {
-        ++length;
-    }
-
-
-    char *result = malloc(length * sizeof(char));
-    for (int i = 0; str[i] != '\0'; ++i) {
-        result[i] = str[i];
-    }
-
-    result[length] = '\0';
-
-    return result;
-}
+char *vc_strdup(char *str);
 
 #endif //UNTITLED1_VC_STRDUP_H

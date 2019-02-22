@@ -9,15 +9,6 @@
 #include "vc_strlen.h"
 #include <string.h>
 
-void vc_bzero(void *s, int n)
-{
-    if (n == 0) return;
-    char *ptr = (char*)s;
-    for (int i = 0; i < n; ++i)
-    {
-        ptr[i] = '\0';
-    }
-
-}
+void vc_bzero(void *s, int n);
 
 #endif //UNTITLED1_VC_BZERO_H

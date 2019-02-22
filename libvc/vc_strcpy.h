@@ -6,11 +6,6 @@
 #ifndef UNTITLED1_VC_STRCPY_H
 #define UNTITLED1_VC_STRCPY_H
 
-char *vc_strcpy(char *dest, char *src) {
-        for(int i=0; src[i] != '\0'; i++) {
-            dest[i] = src[i];
-        }
-        return dest;
-}
+char *vc_strcpy(char *dest, char *src);
 
 #endif //UNTITLED1_VC_STRCPY_H

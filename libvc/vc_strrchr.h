@@ -14,19 +14,7 @@
  */
 
 
-char *vc_strrchr(const char *s, int c)
-{
-    int s_len = vc_strlen(s);
-    char *ptr = &s[0];
-    for (int i = 0; i < s_len; ++i)
-    {
-        if (s[i] == c)
-        {
-            ptr = &s[i];
-        }
-    }
-    return ptr;
-}
+char *vc_strrchr(const char *s, int c);
 
 
 #endif //UNTITLED1_VC_STRRCHR_H

@@ -20,10 +20,6 @@
  */
 
 
-void vc_memdel(void **ap)
-{
-    free(*ap);
-    *ap = NULL;
-}
+void vc_memdel(void **ap);
 
 #endif //UNTITLED1_VC_MEMDEL_H

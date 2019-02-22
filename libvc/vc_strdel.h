@@ -8,7 +8,6 @@
 #include <stdlib.h>
 
 
-void vc_strdel(char **as){
-    free(*as);
-}
+void vc_strdel(char **as);
+
 #endif //UNTITLED1_VC_STRDEL_H

@@ -347,6 +347,11 @@ void test_vc_putchar()
     print_end();
 }
 
+static void iter_char(char *str)
+{
+    printf("%s\n", str);
+}
+
 void test_vc_striter()
 {
     print_init("test_vc_striter\0");
@@ -409,6 +414,10 @@ void test_vc_puts()
     vc_puts("YAAAAY");
     vc_puts("WOW");
     print_end();
+}
+
+static char applyCharToChar(char source) {
+    return ++source;
 }
 
 void test_vc_strmap()

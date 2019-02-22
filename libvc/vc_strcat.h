@@ -30,22 +30,6 @@ If src contains n or more bytes, strncat() writes n+1 bytes to dest (n from src 
 **/
 
 
-char *vc_strcat(char *dest, char *src){
-
-    int i = 0;
-
-    while (dest[i] != '\0'){
-        i++;
-    }
-    int j = 0;
-    while (src[j] != '\0'){
-        dest[i] = src[j];
-        i++;
-        j++;
-    }
-    dest[i] = '\0';
-
-    return dest;
-}
+char *vc_strcat(char *dest, char *src);
 
 #endif //UNTITLED1_VC_STRCAT_H

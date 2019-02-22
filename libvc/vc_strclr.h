@@ -18,14 +18,6 @@
  * @return
  */
 
-void vc_strclr(char *s)
-{
-    int s_len = vc_strlen(s);
-    for (int i = 0; i < s_len; ++i)
-    {
-        s[i] = '\0';
-    }
-
-}
+void vc_strclr(char *s);
 
 #endif //UNTITLED1_VC_STRCLR_H

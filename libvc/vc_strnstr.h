@@ -6,29 +6,6 @@
 #ifndef UNTITLED1_VC_STRNSTR_H
 #define UNTITLED1_VC_STRNSTR_H
 
-#include "vc_strlen.h"
-#include "vc_strncmp.h"
-
-char *vc_strnstr(char *str, char *to_find, size_t len)
-{
-    size_t i;
-
-    i = 0;
-    if (to_find == NULL || vc_strlen(to_find) == 0)
-        return (str);
-    if (vc_strlen(to_find) > len)
-        return (NULL);
-    while (i < len)
-    {
-        if (vc_strncmp(&str[i], to_find, vc_strlen(to_find)) == 0)
-        {
-            if (i + vc_strlen(to_find) > len)
-                return (NULL);
-            return (&str[i]);
-        }
-        i++;
-    }
-    return (NULL);
-}
+char *vc_strnstr(char *str, char *to_find, int len);
 
 #endif //UNTITLED1_VC_STRNSTR_H

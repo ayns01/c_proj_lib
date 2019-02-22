@@ -20,22 +20,7 @@
  * The substring begins at start and is of size len. If start and len aren’t refering to a valid
  * substring, the behavior is undefined. If the allocation fails, the function returns NULL
  */
-char *vc_strsub(char const *s, size_t start, size_t len) {
-    int actualSLength = vc_strlen(s);
-
-    if (actualSLength < start || actualSLength < len) {
-        return 0;
-    }
-
-    char *resultStr = (char *) malloc(len * sizeof(char));
-    resultStr[len] = '\0';
-
-    for (int i = (int) start, j = 0; j < len; ++i, ++j) {
-        resultStr[j] = s[i];
-    }
-
-    return resultStr;
-}
+char *vc_strsub(char const *s, size_t start, size_t len);
 
 
 #endif //UNTITLED1_VC_STRSUB_H

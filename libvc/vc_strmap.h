@@ -6,24 +6,6 @@
 #ifndef UNTITLED1_VC_STRMAP_H
 #define UNTITLED1_VC_STRMAP_H
 
-char *vc_strmap(char const *s, char (*f)(char)) {
-    int length = 0;
-    for (int i = 0; s[i] != '\0'; ++i) {
-        ++length;
-    }
-
-    char *result = (char *) malloc(length * sizeof(char *));
-    result[length + 1] = '\0';
-
-    for (int i = 0; s[i] != '\0'; ++i) {
-        result[i] = f(s[i]);
-    }
-
-    return result;
-}
-
-static char applyCharToChar(char source) {
-    return ++source;
-}
+char *vc_strmap(char const *s, char (*f)(char));
 
 #endif //UNTITLED1_VC_STRMAP_H

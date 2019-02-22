@@ -18,12 +18,6 @@
  * @param str
  */
 
-void vc_putendl(char *str)
-{
-    int len = vc_strlen(str);
-    char *new_line = "\n\0";
-    write(1, str, len);
-    write(1, new_line, 1);
-}
+void vc_putendl(char *str);
 
 #endif //UNTITLED1_VC_PUTENDL_H

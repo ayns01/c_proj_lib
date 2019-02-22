@@ -9,14 +9,6 @@
 #include <string.h>
 
 
-int vc_strlen(const char *str)
-{
-    size_t size = 0;
-    while (str[size] != '\0')
-    {
-        size++;
-    }
-    return (int)size;
-}
+int vc_strlen(const char *str);
 
 #endif //UNTITLED1_VC_STRLEN_H

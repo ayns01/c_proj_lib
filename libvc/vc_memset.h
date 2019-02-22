@@ -19,13 +19,6 @@ RETURN VALUE         top
 
  */
 
-void *vc_memset(void *s, int c, size_t n){
-    unsigned char *p = (unsigned char *) s;
-
-    for(int i = 0; i < n; i++) {
-        p[i] = (unsigned char) c;
-    }
-    return s;
-}
+void *vc_memset(void *s, int c, size_t n);
 
 #endif //UNTITLED1_VC_MEMSET_H
