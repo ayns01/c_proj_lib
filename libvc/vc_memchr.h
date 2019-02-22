@@ -17,6 +17,6 @@
  * in the first n bytes of the string pointed to, by the argument str.
  */
 
-void *vc_memchr(const void *str, int c, unsigned int n);
+void *vc_memchr(const void *str, int c,  int n);
 
 #endif //UNTITLED1_VC_MEMCHR_H

@@ -6,7 +6,7 @@ HEADERS = libvc.h
 all: $(NAME)
 
 $(NAME):
-	gcc -c -Wall -Werror -Wextra $(FILES) -I $(HEADERS)
+	gcc -c $(FILES) -I $(HEADERS)
 	ar -cvq libvc.a $(OBJECTS)
 
 clean:

@@ -1,48 +1,50 @@
 #include <stdio.h>
-#include "libvc/vc_strlen.h"
-#include "libvc/vc_atoi.h"
-#include "libvc/vc_itoa.h"
-#include "libvc/vc_putendl.h"
-#include "libvc/vc_putchar.h"
-#include "libvc/vc_putnbr.h"
-#include "libvc/vc_isalpha.h"
-#include "libvc/vc_strcmp.h"
-#include "libvc/vc_tolower.h"
-#include "libvc/vc_toupper.h"
-#include "libvc/vc_strtrim.h"
-#include "libvc/vc_strsub.h"
-#include "libvc/vc_strstr.h"
-#include "libvc/vc_strnstr.h"
-#include "libvc/vc_strcat.h"
-#include "libvc/vc_strcpy.h"
-#include "libvc/vc_strclr.h"
-#include "libvc/vc_strchr.h"
-#include "libvc/vc_strsplit.h"
-#include "libvc/vc_strncmp.h"
-#include "libvc/vc_isalnum.h"
-#include "libvc/vc_isascii.h"
-#include "libvc/vc_strjoin.h"
-#include "libvc/vc_striter.h"
-#include "libvc/vc_memcpy.h"
-#include "libvc/vc_memcmp.h"
-#include "libvc/vc_memchr.h"
-#include "libvc/vc_strnew.h"
-#include "libvc/vc_puts.h"
-#include "libvc/vc_strmap.h"
-#include "libvc/vc_strdup.h"
-#include "libvc/vc_strrchr.h"
-#include "libvc/vc_isprint.h"
-#include "libvc/vc_memset.h"
-#include "libvc/vc_bzero.h"
-#include "libvc/vc_strncpy.h"
-#include "libvc/vc_strncat.h"
-#include "libvc/vc_strlcat.h"
-#include "libvc/vc_memdel.h"
-#include "libvc/vc_memcmp.h"
-#include "libvc/vc_strdel.h"
-#include "libvc/vc_memccpy.h"
-#include "libvc/vc_bzero.h"
-#include "libvc/vc_memmove.h"
+//#include "libvc/vc_strlen.h"
+//#include "libvc/vc_atoi.h"
+//#include "libvc/vc_itoa.h"
+//#include "libvc/vc_putendl.h"
+//#include "libvc/vc_putchar.h"
+//#include "libvc/vc_putnbr.h"
+//#include "libvc/vc_isalpha.h"
+//#include "libvc/vc_strcmp.h"
+//#include "libvc/vc_tolower.h"
+//#include "libvc/vc_toupper.h"
+//#include "libvc/vc_strtrim.h"
+//#include "libvc/vc_strsub.h"
+//#include "libvc/vc_strstr.h"
+//#include "libvc/vc_strnstr.h"
+//#include "libvc/vc_strcat.h"
+//#include "libvc/vc_strcpy.h"
+//#include "libvc/vc_strclr.h"
+//#include "libvc/vc_strchr.h"
+//#include "libvc/vc_strsplit.h"
+//#include "libvc/vc_strncmp.h"
+//#include "libvc/vc_isalnum.h"
+//#include "libvc/vc_isascii.h"
+//#include "libvc/vc_strjoin.h"
+//#include "libvc/vc_striter.h"
+//#include "libvc/vc_memcpy.h"
+//#include "libvc/vc_memcmp.h"
+//#include "libvc/vc_memchr.h"
+//#include "libvc/vc_strnew.h"
+//#include "libvc/vc_puts.h"
+//#include "libvc/vc_strmap.h"
+//#include "libvc/vc_strdup.h"
+//#include "libvc/vc_strrchr.h"
+//#include "libvc/vc_isprint.h"
+//#include "libvc/vc_memset.h"
+//#include "libvc/vc_bzero.h"
+//#include "libvc/vc_strncpy.h"
+//#include "libvc/vc_strncat.h"
+//#include "libvc/vc_strlcat.h"
+//#include "libvc/vc_memdel.h"
+//#include "libvc/vc_memcmp.h"
+//#include "libvc/vc_strdel.h"
+//#include "libvc/vc_memccpy.h"
+//#include "libvc/vc_bzero.h"
+//#include "libvc/vc_memmove.h"
+
+//#include "libvc/libvc.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -228,14 +230,14 @@ void test_vc_strstr()
 
     // check for equal pointer
     char *str = "asd";
-    int p = &str[0];
-    int p_t = &vc_strstr(str, "asd")[0];
+    char *p = &str[0];
+    char *p_t = &vc_strstr(str, "asd")[0];
     test_result(p == p_t);
 
     // check for equal pointer
     char *str_2 = "my sentence";
-    int p_2 = &str_2[3];
-    int p_t_2 = &vc_strstr(str_2, "sentence")[0];
+    char *p_2 = &str_2[3];
+    char *p_t_2 = &vc_strstr(str_2, "sentence")[0];
     test_result(p_2 == p_t_2);
 
     test_result(vc_strcmp(vc_strstr("my sentence", "sentence"), "sentence") == TRUE);
@@ -253,8 +255,8 @@ void test_vc_strnstr()
 
     // check for equal pointer
     char *str = "asd";
-    int p = &str[0];
-    int p_t = &vc_strnstr(str, "asd", 4)[0];
+    char *p = &str[0];
+    char *p_t = &vc_strnstr(str, "asd", 4)[0];
     test_result(p == p_t);
 
     test_result(vc_strcmp(vc_strnstr("my sentence", "sentence", 12), "sentence") == TRUE);
@@ -530,17 +532,17 @@ void test_vc_strrchr()
 
     // check for equal pointer
     char *str = "asd";
-    int p = &str[1];
-    int p_t = &vc_strrchr(str, 's')[0];
-    int p_t_n = &vc_strrchr(str, 's')[1];
+    char *p = &str[1];
+    char *p_t = &vc_strrchr(str, 's')[0];
+    char *p_t_n = &vc_strrchr(str, 's')[1];
     test_result(p == p_t);
     test_result(p != p_t_n);
 
     // check for equal pointer
     char *str_2 = "01234567839";
-    int p_2 = &str_2[9];
-    int p_2_n = &str_2[3];
-    int p_t_2 = &vc_strrchr(str_2, '3')[0];
+    char *p_2 = &str_2[9];
+    char *p_2_n = &str_2[3];
+    char *p_t_2 = &vc_strrchr(str_2, '3')[0];
     test_result(p_2 == p_t_2);
     test_result(p_2_n != p_t_2);
 
@@ -605,7 +607,7 @@ void test_vc_putnbr()
 void test_vc_memdel()
 {
     print_init((char *) __func__);
-    char **str = (char **) malloc(2 * sizeof(char *));
+    void **str = (void **) malloc(2 * sizeof(void *));
     vc_memdel(str);
     test_result(*str == NULL);
     print_end();
