@@ -10,6 +10,7 @@
 #define FALSE  0
 
 #include "vc_helper.h"
+#include <stdio.h>
 
  int vc_isupper(char c)
 {
