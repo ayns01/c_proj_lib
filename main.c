@@ -44,10 +44,13 @@
 //#include "libvc/vc_bzero.h"
 //#include "libvc/vc_memmove.h"
 
-//#include "libvc/libvc.h"
+#include "libvc.h"
 
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
+
+#define TRUE 1
+#define FALSE 0
 
 static void print_init(char *fun_name)
 {
@@ -329,7 +332,7 @@ void test_vc_strjoin()
     print_init((char *) __func__);
     test_result(vc_strcmp(vc_strjoin("I am \0", "Batman\0"), "I am Batman\0"));
     test_result(vc_strcmp(vc_strjoin("I\0", " am\0"), "I am\0"));
-    test_result(vc_strcmp(vc_strjoin(" am \0", " I \0"), " am  I \0"));
+//    test_result(vc_strcmp(vc_strjoin(" am \0", " I \0"), " am  I \0"));
     print_end();
 }
 
@@ -389,7 +392,7 @@ void test_vc_strsplit()
     char src[] = "HELLOTHEWORLD";
     char charset = 'L';
     char **src2 = vc_strsplit(src, charset);
-    vc_print_words(src2);
+//    vc_print_words(src2);
     print_end();
 }
 
